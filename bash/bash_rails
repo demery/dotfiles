@@ -1,0 +1,45 @@
+# launching console/server
+rsc () {
+  if [ -f ./script/rails ]; then 
+    rails c $@
+  else
+    ./script/console $@
+  fi
+}
+
+rsg () {
+  if [ -f ./script/rails ]; then
+    rails g $@
+  else
+    ./script/generate $@
+  fi
+}
+
+rss () {
+  if [ -f ./script/rails ]; then 
+    rails s $@
+  else
+    ./script/server $@
+  fi
+}
+
+sspe () {
+  if [ -f ./script/rails ]; then 
+    sudo rails s -p80 $@
+  else
+    sudo ./script/server -p80 $@
+  fi
+}
+
+# database migrate
+alias rdbm='rake db:migrate'
+alias rdbt='rake db:test:clone'
+
+# tests
+alias rspec='rake spec'
+
+# rails logs, tailing and cleaning
+alias tdl='tail -f ./log/development.log'
+alias ttl='tail -f ./log/test.log'
+alias ctl='> ./log/test.log'
+alias cdl='> ./log/development.log'
