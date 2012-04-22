@@ -7,24 +7,11 @@ export PYTHONPATH=$PYTHONPATH:/usr/local/lib/svn-python
 export NODE_PATH=/usr/local/lib/node_modules
 export NODE_NO_READLINE=1
 
-#export BAGIT_HOME=$HOME/dev/bagit-3.0
-# export FOP_HOME=$HOME/dev/Java/fop-0.95
-# export DEV_HOME=$HOME/dev
-
-#export DYLD_LIBRARY_PATH=/opt/local/lib
-
-# PATH=$JAVA_HOME/bin:$PATH
 PATH=/usr/local/bin:$PATH
 PATH=/usr/local/sbin:$PATH
-# PATH=/usr/texbin/:$PATH
 PATH=$PATH:$HOME/bin
-# PATH=$PATH:$HOME/code/SVN/emeryit_code/util
 PATH=$PATH:$HOME/scripts
 PATH=$PATH:$HOME/dev/jhove
-# PATH=$PATH:$HOME/dev/loc-xferutils
-# PATH=$PATH:$HOME/dev/Java/maven/bin
-# PATH=$PATH:$FOP_HOME
-# PATH=$PATH:$BAGIT_HOME/bin
 PATH=/usr/local/share/python:$PATH # put the python path first
 PATH=/usr/local/pgsql/bin:$PATH
 
@@ -34,31 +21,16 @@ alias l="ls -F"
 alias ll="l -l"
 alias lal="ll -a"
 
-# alias wsc="cd $HOME/code/SVN/waldseemuller_code"
-# alias wsd="cd $HOME/code/SVN/waldseemuller_docs"
-# alias wsr="cd $HOME/code/SVN/waldseemuller_rails"
 alias apc="cd $HOME/code/HG/archiecode"
-# alias apd="cd $HOME/code/SVN/archie_docs"
-# alias apr="cd $HOME/code/SVN/archie_rails"
-# alias aps="cd $HOME/code/SVN/archie-spring"
-# alias eic="cd $HOME/code/SVN/emeryit_code"
-# alias idc="cd $HOME/code/SVN/idr_code"
-# alias idd="cd $HOME/code/SVN/idr_docs"
 alias wcs="cd $HOME/code/GIT/wect-spring"
 alias ids=wcs
 alias tcat="cd $HOME/dev/Java/tomcat"
 alias idr="cd $HOME/code/HG/idr2-rails"
-# alias eir="cd $HOME/code/SVN/jhuei-rails"
-# alias hsi="cd $HOME/code/SVN/hsimm-rails"
-# alias pwb="cd $HOME/code/SVN/pwb"
-# alias iwc="cd $HOME/code/SVN/iwsdb_work"
-# alias dngi="~/bin/tiffinfo -i "
 alias msi="cd $HOME/code/GIT/msimm-0.1-3.0"
 alias arx="cd $HOME/code/HG/archie"
 alias arn="cd $HOME/code/HG/archie.net"
 alias art="cd $HOME/code/HG/archietrans"
 alias dam="cd $HOME/code/HG/damascus"
-# alias syd="cd $HOME/code/HG/syriacdocs"
 alias clp="cd $HOME/code/GIT/class-d"
 alias sbx="cd $HOME/code/sandbox"
 alias alb="cd $HOME/code/scratch/albums"
@@ -78,10 +50,6 @@ alias wl="wc -l"
 alias photocracy="ssh -l dylan 199.68.232.12"
 alias tdw="ssh -l doug thedigitalwalters.org"
 
-# Setting PATH for MacPython 2.5
-# The orginal version is saved in .bash_login.pysave
-# PATH="/Library/Frameworks/Python.framework/Versions/Current/bin:${PATH}"
-# export PATH
 
 export PGCLIENTENCODING=UNICODE
 
@@ -92,11 +60,8 @@ if [ -f /etc/manpaths ]; then
       MANPATH=$MANPATH:$x
    done
 fi
-#MANPATH=$MANPATH:/opt/local/share/man
 export MANPATH
 
-#export MAGICK_HOME=/opt/local/share/ImageMagick-6.4.4
-#export DYLD_LIBRARY_PATH="$MAGICK_HOME/lib"
 export COPYFILE_DISABLE=true
 export SGML_CATALOG_FILES=$DEV_HOME/XML/catalog/catalog.xml
 export XML_CATALOG_FILES=$DEV_HOME/XML/catalog/catalog.xml
