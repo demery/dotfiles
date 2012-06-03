@@ -40,6 +40,7 @@ alias kat="cd $HOME/code/GIT/katikon"
 alias lix="cd $HOME/code/GIT/livingstone-xml"
 alias lip="cd $HOME/EmeryIt/EMEL/Livingstone/scripts"
 alias sin="cd $HOME/code/GIT/sinai_scripts"
+alias iso="cd $HOME/code/GIT/iso639_config"
 alias kv2="cd $HOME/code/GIT/kv0.2"
 alias bcr="cd $HOME/code/SVN/briefcite-citations-TAKE2"
 alias gi="gem install --no-rdoc --no-ri"
@@ -49,6 +50,8 @@ alias vi=~/bin/vim
 alias wl="wc -l"
 alias photocracy="ssh -l dylan 199.68.232.12"
 alias tdw="ssh -l doug thedigitalwalters.org"
+alias snippets="cd $HOME/.vim/snippets"
+alias snip=snippets
 
 
 export PGCLIENTENCODING=UNICODE
