@@ -12,47 +12,61 @@ PATH=/usr/local/sbin:$PATH
 PATH=$PATH:$HOME/bin
 PATH=$PATH:$HOME/scripts
 PATH=$PATH:$HOME/dev/jhove
+PATH=$PATH:$HOME/dev/Java/maven/bin
 PATH=/usr/local/share/python:$PATH # put the python path first
 PATH=/usr/local/pgsql/bin:$PATH
+PATH=$PATH:/usr/local/mysql/bin
 
 export PATH
 
+# command aliases
 alias l="ls -F"
 alias ll="l -l"
 alias lal="ll -a"
 
-alias apc="cd $HOME/code/HG/archiecode"
-alias wcs="cd $HOME/code/GIT/wect-spring"
-alias ids=wcs
-alias tcat="cd $HOME/dev/Java/tomcat"
-alias idr="cd $HOME/code/HG/idr2-rails"
-alias msi="cd $HOME/code/GIT/msimm-0.1-3.0"
-alias arx="cd $HOME/code/HG/archie"
-alias arn="cd $HOME/code/HG/archie.net"
-alias art="cd $HOME/code/HG/archietrans"
-alias dam="cd $HOME/code/HG/damascus"
-alias clp="cd $HOME/code/GIT/class-d"
-alias sbx="cd $HOME/code/sandbox"
-alias alb="cd $HOME/code/scratch/albums"
-alias rbx="cd $HOME/code/sandbox/ruby-sandbox"
-alias wcr="cd $HOME/code/GIT/wect"
-alias kat="cd $HOME/code/GIT/katikon"
-alias lix="cd $HOME/code/GIT/livingstone-xml"
-alias lip="cd $HOME/EmeryIt/EMEL/Livingstone/scripts"
-alias sin="cd $HOME/code/GIT/sinai_scripts"
-alias iso="cd $HOME/code/GIT/iso639_config"
-alias kv2="cd $HOME/code/GIT/kv0.2"
-alias bcr="cd $HOME/code/SVN/briefcite-citations-TAKE2"
 alias gi="gem install --no-rdoc --no-ri"
 alias openx="open -a \"Microsoft Excel\""
-alias vim=~/bin/vim
+alias sxp=strip_xpath
 alias vi=~/bin/vim
+alias vim=~/bin/vim
 alias wl="wc -l"
-alias photocracy="ssh -l dylan 199.68.232.12"
-alias tdw="ssh -l doug thedigitalwalters.org"
+
+# directory alias
+alias apc="cd $HOME/code/HG/archiecode"
+alias arn="cd $HOME/code/HG/archie.net"
+alias art="cd $HOME/code/HG/archietrans"
+alias arx="cd $HOME/code/HG/archie"
+alias bcr="cd $HOME/code/SVN/briefcite-citations-TAKE2"
+alias cld="cd $HOME/code/GIT/class-d"
+alias cl2="cd $HOME/code/GIT/classd-ii"
+alias dam="cd $HOME/code/HG/damascus"
+alias idr="cd $HOME/code/HG/idr2-rails"
+alias iso="cd $HOME/code/GIT/iso639_config"
+alias kat="cd $HOME/code/GIT/katikon"
+alias ksin="cd $HOME/code/GIT/ksinai"
+alias clx="cd $HOME/code/GIT/classd-xml"
+alias kv2="cd $HOME/code/GIT/kv0.2"
+alias lip="cd $HOME/EmeryIt/EMEL/Livingstone/scripts"
+alias lix="cd $HOME/code/GIT/livingstone-xml"
+alias msi="cd $HOME/code/GIT/msimm-0.1-3.0"
+alias msq="cd $HOME/code/GIT/msiqa"
+alias rbx="cd $HOME/code/sandbox/ruby-sandbox"
+alias sbx="cd $HOME/code/sandbox"
+alias sin="cd $HOME/code/GIT/sinai_scripts"
 alias snippets="cd $HOME/.vim/snippets"
 alias snip=snippets
+alias spi="cd $HOME/code/GIT/spindle"
+alias tcat="cd $HOME/dev/Java/tomcat"
+alias wcr="cd $HOME/code/GIT/wect"
+# print ISO formatted date time
+alias idate="date +%FT%T%z"
+alias wamp="cd $HOME/code/GIT/wam-purls"
 
+# login aliases
+alias photocracy="ssh -l dylan 199.68.232.12"
+alias tdw="ssh -l doug thedigitalwalters.org"
+alias simac="ssh -p 9878 -l doug 173.60.88.178"
+alias wmss="ssh -p 8999 -l waltersm walters-mss.org"
 
 export PGCLIENTENCODING=UNICODE
 
@@ -91,6 +105,10 @@ NO_COLOUR="\[\033[0m\]"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 [[ -r "$HOME/.rvm/scripts/completion" ]] && . "$HOME/.rvm/scripts/completion" # This adds rvm shell completion
-PS1="$GREEN\u@machine$NO_COLOUR:\w:$LIGHT_GRAY\$(~/.rvm/bin/rvm-prompt i v g)$NO_COLOUR:$YELLOW\$(parse_git_branch)$NO_COLOUR\$ "
+PS1="$GREEN\u@\h$NO_COLOUR:\W:$LIGHT_GRAY\$(~/.rvm/bin/rvm-prompt i v g)$NO_COLOUR:$YELLOW\$(parse_git_branch)$NO_COLOUR\$ "
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+
+# app stuff
+export KATIKON_S3_BUCKET_NAME=katikon-dev.emeryit.com
+
