@@ -23663,7 +23663,6 @@
 	<key>ToolbeltTools</key>
 	<array>
 		<string>Paste History</string>
-		<string>Command History</string>
 	</array>
 	<key>TripleClickSelectsFullWrappedLines</key>
 	<false/>

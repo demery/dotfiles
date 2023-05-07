@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
 
+###################################################################
+# Script Name    : setup.sh
+# Description    : Link bash_profile to ${HOME}/.bash_profile; and
+#                  install bash-it
+# Args           : None
+# Author         : Doug Emery
+# Email          : hummus.augment_0r@icloud.com
+###################################################################
+
 CMD=$(basename $0)
 THIS_DIR="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
 TIMESTAMP=$(date +"%Y-%m-%d")
