@@ -13,8 +13,10 @@ export HISTSIZE=1000000
 #export FUSEKI_HOME=$HOME/dev/Java/apache-jena-fuseki-3.11.0
 #export JENA_HOME=$HOME/dev/Java/apache-jena-3.11.0
 
+
 PATH=/usr/local/bin:$PATH
 PATH=/usr/local/sbin:$PATH
+PATH=/opt/homebrew/bin:$PATH
 PATH=$PATH:$HOME/bin
 PATH=$PATH:$HOME/scripts
 
@@ -65,7 +67,7 @@ fi
 ##
 ###############################################################################
 # iTerm2 stuff
-# [[ -f  ~/.iterm2_shell_integration.bash ]] && source ~/.iterm2_shell_integration.bash
+[[ -f  ~/.iterm2_shell_integration.bash ]] && source ~/.iterm2_shell_integration.bash
 ##
 # Thos the hostname in the iterm2 window bar.
 # $1 = type; 0 - both, 1 - tab, 2 - title
@@ -82,10 +84,25 @@ stt_title () { setTerminalText 2 $@; }
 stt_both $(hostname)
 ### end iTerm2 stuff
 ###############################################################################
+
 ##
-eval "$(rbenv init -)"
+# Rbenv
+which -s rbenv && eval "$(rbenv init -)" || echo "WARNING: rbenv not found"
+
 ##
-[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+# Pyenv
+PYENV_ROOT=${HOME}./pyenv
+
+if [[ -e ${PYENV_ROOT} ]]
+then
+  eval "$(pyenv init -)"
+fi
+
+##
+# Bash completion
+[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+
+
 ##
 if [[ -f $HOME/.ansible-vault-sdbm ]]; then
   source "$HOME/.ansible-vault-sdbm"
@@ -121,7 +138,7 @@ export BASH_IT_THEME='bobby'
 ##
 # Some themes can show whether `sudo` has a current token or not.
 # Set `$THEME_CHECK_SUDO` to `true` to check every prompt:
-#THEME_CHECK_SUDO='true'
+THEME_CHECK_SUDO='true'
 ##
 # (Advanced): Change this to the name of your remote repo if you
 # cloned bash-it with a remote other than origin such as `bash-it`.
@@ -132,7 +149,7 @@ export BASH_IT_THEME='bobby'
 # export BASH_IT_DEVELOPMENT_BRANCH='master'
 ##
 # Your place for hosting Git repos. I use this for private repos.
-export GIT_HOSTING='git@git.domain.com'
+# export GIT_HOSTING='git@git.domain.com'
 ##
 # Don't check mail when opening terminal.
 unset MAILCHECK
