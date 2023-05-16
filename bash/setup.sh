@@ -15,10 +15,76 @@ TIMESTAMP=$(date +"%Y-%m-%d")
 BASH_PROFILE=${HOME}/.bash_profile
 BASH_IT_DIR=${HOME}/.bash_it
 BASH_IT_OPTS=
+HOMEBREW_PACKAGES="bash-completion"
 
 function msg {
   echo "[${CMD}] $1"
 }
+
+function usage {
+  echo "Usage: ${CMD} [-h] [-b|-u]"
+}
+
+function description {
+  cat <<EOF
+
+Description:
+------------
+Setup bash configuration
+
+- link ~/.bash_profile to ${THIS_DIR}/bash_profile
+- install Bash It
+- optionally install or upgrade Homebew package(s):
+    - ${HOMEBREW_PACKAGES}
+
+Options:
+-------------------
+-h          Print this help message and exit
+-b          Install homebrew packages
+-u          Install or upgrade homebrew packages
+EOF
+}
+
+function install_pkg {
+  ip_pkg=$1
+  ip_upgrade=$2
+  if brew list | egrep -q "\b${ip_pkg}\b"
+  then
+    msg "Package already installed: ${pkg}"
+    if [[ -n ${ip_upgrade} ]]
+    then
+      msg "Upgrade requested; upgrading: ${pkg}"
+      brew upgrade ${pkg}
+    fi
+  else
+    brew install ${pkg}
+  fi
+}
+
+homebrew=
+homebrew_upgrade=
+while getopts "hbu" opt; do
+  case "$opt" in
+    h)
+      usage
+      description
+      exit 0
+      ;;
+    b)
+      homebrew=true
+      ;;
+    u)
+      homebrew=true
+      homebrew_upgrade=true
+      ;;
+    ?)
+      usage
+      echo "Error: did not recognize option, ${OPTARG}."
+      echo "Please try -h for help."
+      exit 1
+      ;;
+  esac
+done
 
 if [[ -L ${BASH_PROFILE} ]]
 then
@@ -62,6 +128,23 @@ else
     BASH_IT_OPTS="--no-modify-config"
   fi
   ${BASH_IT_DIR}/install.sh ${BASH_IT_OPTS}
+fi
+
+# Install homebrew packages
+if [[ -n ${homebrew} ]]
+then
+  msg "Installing homebrew packages: ${HOMEBREW_PACKAGES}"
+  if which -s brew
+  then
+    for pkg in ${HOMEBREW_PACKAGES}
+    do
+      install_pkg ${pkg} ${homebrew_upgrade}
+    done
+  else
+    msg "WARNING: Homebrew not found"
+    msg "WARNING: No packages installed"
+    msg "Please install homebrew and add it to your path"
+  fi
 fi
 
 msg "Done"
