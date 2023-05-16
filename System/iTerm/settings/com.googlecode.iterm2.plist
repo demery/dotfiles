@@ -23662,7 +23662,8 @@
 	<integer>10</integer>
 	<key>ToolbeltTools</key>
 	<array>
-		<string>Paste History</string>
+		<string>Actions</string>
+		<string>Recent Directories</string>
 	</array>
 	<key>TripleClickSelectsFullWrappedLines</key>
 	<false/>
