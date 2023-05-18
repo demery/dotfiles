@@ -1,0 +1,32 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"AdvancedNewFile",
+		"AlignTab",
+		"Anaconda",
+		"Babel",
+		"Dockerfile Syntax Highlighting",
+		"GitGutter",
+		"HTMLBeautify",
+		"Indent XML",
+		"JSON Reindent",
+		"Marked App Menu",
+		"nginx",
+		"Package Control",
+		"Pretty JSON",
+		"Python 3",
+		"Restructured Text (RST) Snippets",
+		"RestructuredText Improved",
+		"SCSS",
+		"SPARQL",
+		"TerminalView",
+		"Terminus",
+		"ToggleQuotes",
+		"TOML",
+		"Turtle RDF Syntax",
+	],
+}

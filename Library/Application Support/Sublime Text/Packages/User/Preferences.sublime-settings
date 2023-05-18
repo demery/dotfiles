@@ -1,0 +1,32 @@
+{
+	"added_words":
+	[
+		"metadata",
+		"website's"
+	],
+	"auto_complete_commit_on_tab": false,
+	"draw_white_space": "all",
+	"folder_exclude_patterns":
+	[
+		"node_modules"
+	],
+	/*"font_size": 15,*/
+	"ignored_packages":
+	[
+		"TerminalView",
+		"Vintage",
+	],
+	"show_full_path": true,
+	"show_minimap": false,
+	"tab_size": 2,
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+	/*"font_size": 15,*/
+	/*"font_size": 15,*/
+	/*"font_size": 16,*/
+	/*"font_size": 17,*/
+	/*"font_size": 15,*/
+	/*"font_size": 17,*/
+	/*"font_size": 16,*/
+	"font_size": 12,
+}
