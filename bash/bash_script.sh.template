@@ -3,7 +3,6 @@
 ###################################################################
 # Script Name    : bash_script.sh.template
 # Description    : Template for a bash script with options.
-#                  Adapted from
 # Args           : None
 # Author         : Doug Emery
 # Email          : hummus.augment_0r@icloud.com
