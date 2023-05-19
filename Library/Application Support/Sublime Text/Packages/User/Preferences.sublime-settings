@@ -11,11 +11,7 @@
 		"node_modules"
 	],
 	/*"font_size": 15,*/
-	"ignored_packages":
-	[
-		"TerminalView",
-		"Vintage",
-	],
+
 	"show_full_path": true,
 	"show_minimap": false,
 	"tab_size": 2,
