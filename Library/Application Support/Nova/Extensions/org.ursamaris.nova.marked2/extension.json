@@ -1,0 +1,37 @@
+{
+  "identifier": "org.ursamaris.nova.marked2",
+  "name": "Marked 2",
+  "organization": "John Fieber",
+  "description": "View Markdown files with Marked 2.",
+  "version": "1.1.1",
+  "categories": ["commands"],
+  "repository": "https://github.com/jfieber/Marked2.novaextension",
+  "bugs": "https://github.com/jfieber/Marked2.novaextension/issues",
+  "license": "MIT",
+  "main": "main.js",
+  "activationEvents": ["onLanguage:markdown"],
+  "entitlements": {
+    "process": true,
+    "filesystem": "readonly"
+  },
+
+  "config": [
+    {
+      "key": "org.ursamaris.nova.marked2.markedPath",
+      "title": "Marked 2 Path",
+      "description": "The path to the Marked 2 application. This will be filled in automatically when the extension is first loaded, or you can select the application manually here.",
+      "type": "path",
+      "filetype": ["com.apple.application-bundle"]
+    }
+  ],
+
+  "commands": {
+    "editor": [
+      {
+        "title": "View in Marked 2",
+        "command": "marked.runMarked2",
+        "when": "editorHasFocus && documentHasPath && editorSyntax == 'markdown'"
+      }
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+    "identifier": "belcar.markdownlint",
+    "name": "markdownlint",
+    "bugs": "https://github.com/belcar-s/nova-markdownlint/issues",
+    "repository": "https://github.com/belcar-s/nova-markdownlint",
+    "organization": "belcar-s",
+    "description": "Lint markdown files with markdownlint.",
+    "version": "1.0",
+    "categories": ["issues"],
+
+    "main": "main.js",
+
+    "activationEvents": [
+        "onLanguage:markdown"
+    ],
+
+    "entitlements": {
+        "process": true,
+        "filesystem": "readwrite"
+    }
+}

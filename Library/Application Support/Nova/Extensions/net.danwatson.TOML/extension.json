@@ -1,0 +1,11 @@
+{
+    "identifier": "net.danwatson.TOML",
+    "name": "TOML",
+    "organization": "Dan Watson",
+    "description": "Syntax highlighting for TOML files.",
+    "version": "1.0",
+    "categories": ["languages"],
+    "repository": "https://github.com/dcwatson/TOML.novaextension",
+    "bugs": "https://github.com/dcwatson/TOML.novaextension/issues",
+    "license": "MIT"
+}

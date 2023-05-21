@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<syntax name="toml">
+    <meta>
+        <name>TOML</name>
+        <type>structured</type>
+        <preferred-file-extension>toml</preferred-file-extension>
+    </meta>
+    
+    <detectors>
+        <extension priority="1.0">toml</extension>
+    </detectors>
+    
+    <comments>
+        <single>
+            <expression>\#</expression>
+        </single>
+    </comments>
+    
+    <brackets>
+        <pair open="[" close="]" />
+    </brackets>
+    
+    <surrounding-pairs>
+        <pair open="&lt;" close="&gt;" />
+        <pair open="{" close="}" />
+        <pair open="[" close="]" />
+        <pair open="(" close=")" />
+        <pair open="&apos;" close="&apos;" />
+        <pair open="&quot;" close="&quot;" />
+        <pair open="`" close="`" />
+    </surrounding-pairs>
+    
+    <scopes>
+        <include syntax="self" collection="comments" />
+        <include syntax="self" collection="tables" />
+        <include syntax="self" collection="keypairs" />
+    </scopes>
+    
+    <collections>
+        <collection name="comments">
+            <scope name="toml.comment">
+                <expression>\#.*</expression>
+            </scope>
+        </collection>
+        
+        <collection name="strings">
+            <scope name="toml.string.basic.multi">
+                <starts-with>
+                    <expression>&quot;&quot;&quot;</expression>
+                </starts-with>
+                <ends-with>
+                    <expression>&quot;{3,5}</expression>
+                </ends-with>
+                <subscopes>
+                    <scope name="toml.string.basic.escape">
+                        <expression>\\(?:[btnfr"\\]|u\h{4}|U\h{8})</expression>
+                    </scope>
+                </subscopes>
+            </scope>
+            <scope name="toml.string.basic">
+                <starts-with>
+                    <expression>&quot;</expression>
+                </starts-with>
+                <ends-with>
+                    <expression>&quot;</expression>
+                </ends-with>
+                <subscopes>
+                    <scope name="toml.string.basic.escape">
+                        <expression>\\(?:[btnfr"\\]|u\h{4}|U\h{8})</expression>
+                    </scope>
+                </subscopes>
+            </scope>
+            <scope name="toml.string.literal.multi">
+                <starts-with>
+                    <expression>&apos;&apos;&apos;</expression>
+                </starts-with>
+                <ends-with>
+                    <expression>&apos;{3,5}</expression>
+                </ends-with>
+            </scope>
+            <scope name="toml.string.literal">
+                <starts-with>
+                    <expression>&apos;</expression>
+                </starts-with>
+                <ends-with>
+                    <expression>&apos;</expression>
+                </ends-with>
+            </scope>
+        </collection>
+        
+        <collection name="values">
+            <include syntax="self" collection="strings" />
+            <scope name="toml.identifier.constant.date">
+                <expression>(?x)
+                    [0-9]{4}
+                    \-
+                    (0[1-9]|1[012])
+                    \-
+                    (?!00|3[2-9])[0-3][0-9]
+                    (
+                        [Tt ]
+                        (?!2[5-9])[0-2][0-9]
+                        :
+                        [0-5][0-9]
+                        :
+                        (?!6[1-9])[0-6][0-9]
+                        (\.[0-9]+)?
+                        (
+                            Z
+                          | [+\-](?!2[5-9])[0-2][0-9]:[0-5][0-9]
+                        )?
+                    )?
+                </expression>
+            </scope>
+            <scope name="toml.identifier.constant.time">
+                <expression>(?x)
+                    (?!2[5-9])[0-2][0-9]
+                    :
+                    [0-5][0-9]
+                    :
+                    (?!6[1-9])[0-6][0-9]
+                    (\.[0-9]+)?
+                </expression>
+            </scope>
+            <scope name="toml.value.number.float">
+                <expression>(?x)
+                    (
+                        [+-]?
+                        (
+                            0
+                          | ([1-9](([0-9]|_[0-9])+)?)
+                        )
+                    )
+                    (?=[.eE])
+                    (
+                        \.
+                        ([0-9](([0-9]|_[0-9])+)?)
+                    )?
+                    (
+                        [eE]
+                        ([+-]?[0-9](([0-9]|_[0-9])+)?)
+                    )?
+                </expression>
+            </scope>
+            <scope name="toml.value.number.integer">
+                <expression>[+\-]?[1-9][0-9\._]+</expression>
+            </scope>
+            <scope name="toml.value.boolean">
+                <expression>(true|false)</expression>
+            </scope>
+            <scope name="toml.value.number.hex">
+                <expression>0x\h(\h|_\h)*</expression>
+            </scope>
+            <scope name="toml.value.number.octal">
+                <expression>0o[0-7]([0-7]|_[0-7])*</expression>
+            </scope>
+            <scope name="toml.value.number.binary">
+                <expression>0b[01]([01]|_[01])*</expression>
+            </scope>
+            <scope name="toml.value.number.named">
+                <expression>[+\-]?(inf|nan)</expression>
+            </scope>
+            <scope name="toml.value.array">
+                <starts-with>
+                    <expression>\[</expression>
+                </starts-with>
+                <ends-with>
+                    <expression>\]</expression>
+                </ends-with>
+                <subscopes>
+                    <scope name="toml.separator">
+                        <expression>,</expression>
+                    </scope>
+                    <include name="syntax" collection="comments" />
+                    <include name="syntax" collection="values" />
+                </subscopes>
+            </scope>
+        </collection>
+        
+        <collection name="tables">
+            <scope name="toml.table.array">
+                <symbol type="bookmark">
+                    <context behavior="subtree" />
+                </symbol>
+                <starts-with>
+                    <expression>^\s*(\[{1,2})([^\[\]]*)(\]{1,2})</expression>
+                    <capture number="1" name="toml.bracket" />
+                    <capture number="2" name="toml.markup.bold.name" />
+                    <capture number="3" name="toml.bracket" />
+                </starts-with>
+                <ends-with>
+                    <expression>(?=\s*\[)</expression>
+                </ends-with>
+                <subscopes>
+                    <include syntax="self" />
+                </subscopes>
+            </scope>
+        </collection>
+        
+        <collection name="keypairs">
+            <scope name="toml.keypair">
+                <symbol type="enum-member" />
+                <starts-with>
+                    <expression>\s*([A-Za-z0-9_\-\.\s&quot;&apos;]*[A-Za-z0-9_\-\.&quot;&apos;])\s*(=)\s*</expression>
+                    <capture number="1" name="toml.identifier.key.name" />
+                    <capture number="2" name="toml.operator" />
+                </starts-with>
+                <ends-with>
+                    <expression>(?&lt;=\S)(?&lt;!=)|$</expression>
+                </ends-with>
+                <subscopes>
+                    <include syntax="self" collection="values" />
+                </subscopes>
+            </scope>
+        </collection>
+    </collections>
+</syntax>

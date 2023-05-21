@@ -1,0 +1,382 @@
+{
+  "identifier": "patrickvuarnoz.beautify",
+  "name": "Beautify",
+  "organization": "Patrick A. Vuarnoz",
+  "description": "Format Javascript, Typescript, JSON, CSS, SCSS, LESS, HTML and XML using JS-Beautify.",
+  "version": "1.6",
+  "categories": ["formatters", "commands"],
+
+  "main": "main.js",
+
+  "activationEvents": [
+    "onLanguage:javascript",
+    "onLanguage:typescript",
+    "onLanguage:json",
+    
+    "onLanguage:css",
+    "onLanguage:scss",
+    "onLanguage:less",
+    "onLanguage:liquid-css",
+    "onLanguage:liquid-scss",
+    
+    "onLanguage:xml",
+    "onLanguage:html",
+    "onLanguage:html+ejs",
+    "onLanguage:html+erb",
+    "onLanguage:jinja-html",
+    "onLanguage:liquid-html"
+  ],
+
+  "entitlements": {
+
+  },
+
+  "config": [
+    {
+      "title": "Javascript & JSON",
+      "type": "section",
+      "link": "https://github.com/beautify-web/js-beautify#options",
+      "children": [
+        {
+          "key": "patrickvuarnoz.beautify.js.brace_style",
+          "title": "Brace style",
+          "type": "enum",
+          "radio": false,
+          "values": ["collapse", "expand", "end-expand", "none"],
+          "default": "collapse"
+        },
+        {
+          "key": "patrickvuarnoz.beautify.js.brace_style_preserve_inline",
+          "title": "Preserve inline braces/code blocks",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "key": "patrickvuarnoz.beautify.js.space_in_paren",
+          "title": "Add spaces within paren, i.e. f( a, b )",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "patrickvuarnoz.beautify.js.space_in_empty_paren",
+          "title": "Add a single space inside empty paren, i.e. f( )",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "patrickvuarnoz.beautify.js.space_after_anon_function",
+          "title": "Add a space before an anonymous function's parens, i.e. function ()",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "patrickvuarnoz.beautify.js.space_after_named_function",
+          "title": "Add a space before a named function's parens, i.e. function example ()",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "patrickvuarnoz.beautify.js.space_before_conditional",
+          "title": "Add a space before a conditional, i.e. if (x)",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "key": "patrickvuarnoz.beautify.js.unindent_chained_methods",
+          "title": "Don't indent chained method calls",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "patrickvuarnoz.beautify.js.break_chained_methods",
+          "title": "Break chained method calls across subsequent lines",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "patrickvuarnoz.beautify.js.unescape_strings",
+          "title": "Unescape printable characters encoded in \\xNN or \\uNNNN notation",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "patrickvuarnoz.beautify.js.comma_first",
+          "title": "Put commas at the beginning of new line instead of end",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "patrickvuarnoz.beautify.js.keep_array_indentation",
+          "title": "Preserve array indentation",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "patrickvuarnoz.beautify.js.preserve_newlines",
+          "title": "Preserve existing line-breaks",
+          "type": "boolean",
+          "default": true
+        }
+      ]
+    },
+    {
+      "title": "CSS, SCSS & LESS",
+      "type": "section",
+      "link": "https://github.com/beautify-web/js-beautify#css--html",
+      "children": [
+        {
+          "key": "patrickvuarnoz.beautify.css.brace_style",
+          "title": "Brace style",
+          "type": "enum",
+          "radio": false,
+          "values": ["collapse", "expand"],
+          "default": "collapse"
+        },
+        {
+          "key": "patrickvuarnoz.beautify.css.space_around_combinator",
+          "title": "Add spaces around combinators, i.e. .foo > .bar",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "patrickvuarnoz.beautify.css.selector_separator_newline",
+          "title": "Add a newline between multiple selectors",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "key": "patrickvuarnoz.beautify.css.newline_between_rules",
+          "title": "Add a newline between rules",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "key": "patrickvuarnoz.beautify.css.preserve_newlines",
+          "title": "Preserve existing line-breaks",
+          "type": "boolean",
+          "default": true
+        }
+      ]
+    },
+    {
+      "title": "HTML & XML",
+      "type": "section",
+      "link": "https://github.com/beautify-web/js-beautify#css--html",
+      "children": [
+        {
+          "key": "patrickvuarnoz.beautify.html.brace_style",
+          "title": "Brace style",
+          "type": "enum",
+          "radio": false,
+          "values": ["collapse", "expand", "end-expand", "none", "preserve-inline"],
+          "default": "collapse"
+        },
+        {
+          "key": "patrickvuarnoz.beautify.html.wrap_attributes",
+          "title": "Wrap attributes",
+          "type": "enum",
+          "radio": false,
+          "values": ["auto", "force", "force-aligned", "force-expand-multiline", "aligned-multiple", "preserve", "preserve-aligned"],
+          "default": "auto"
+        },
+        {
+          "key": "patrickvuarnoz.beautify.html.wrap_attributes_indent_size",
+          "title": "Indent wrapped attributes (ignored if 'wrap attributes' is 'aligned')",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "key": "patrickvuarnoz.beautify.html.indent_scripts",
+          "title": "Indent scripts",
+          "type": "enum",
+          "radio": false,
+          "values": ["keep", "separate", "normal"],
+          "default": "normal"
+        },
+        {
+          "key": "patrickvuarnoz.beautify.html.indent_inner_html",
+          "title": "Indent <head> and <body> sections",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "patrickvuarnoz.beautify.html.preserve_newlines",
+          "title": "Preserve existing line-breaks",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "key": "patrickvuarnoz.beautify.html.unformatted",
+          "title": "Unformatted tags",
+          "description": "List of tags that should not be reformatted, notation is without '<>', i.e. 'span'",
+          "type": "text",
+          "default": ""
+        },
+        {
+          "key": "patrickvuarnoz.beautify.html.content_unformatted",
+          "title": "Unformatted content",
+          "description": "List of tags whose content should not be reformatted, notation is without '<>', i.e. 'pre,textarea'",
+          "type": "text",
+          "default": "pre,textarea"
+        },
+        {
+          "key": "patrickvuarnoz.beautify.html.extra_liners",
+          "title": "Extra lines before",
+          "description": "List of tags that should have an extra line before them, notation is without '<>', i.e. 'head,body,/html'",
+          "type": "text",
+          "default": "head,body,/html"
+        }
+      ]
+    },
+    {
+      "title": "Format on save",
+      "type": "section",
+      "children": [
+        
+        {
+          "key": "patrickvuarnoz.beautify.format_on_save.javascript",
+          "title": "Javascript",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "patrickvuarnoz.beautify.format_on_save.typescript",
+          "title": "Typescript",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "patrickvuarnoz.beautify.format_on_save.json",
+          "title": "JSON",
+          "type": "boolean",
+          "default": false
+        },
+        
+        {
+          "key": "patrickvuarnoz.beautify.format_on_save.css",
+          "title": "CSS",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "patrickvuarnoz.beautify.format_on_save.liquid-css",
+          "title": "CSS (Liquid)",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "patrickvuarnoz.beautify.format_on_save.scss",
+          "title": "SCSS",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "patrickvuarnoz.beautify.format_on_save.liquid-scss",
+          "title": "SCSS (Liquid)",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "patrickvuarnoz.beautify.format_on_save.less",
+          "title": "LESS",
+          "type": "boolean",
+          "default": false
+        },
+        
+        {
+          "key": "patrickvuarnoz.beautify.format_on_save.html",
+          "title": "HTML",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "patrickvuarnoz.beautify.format_on_save.html+ejs",
+          "title": "HTML (EJS)",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "patrickvuarnoz.beautify.format_on_save.html+erb",
+          "title": "HTML (ERB)",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "patrickvuarnoz.beautify.format_on_save.jinja-html",
+          "title": "HTML (Jinja2)",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "patrickvuarnoz.beautify.format_on_save.liquid-html",
+          "title": "HTML (Liquid)",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "patrickvuarnoz.beautify.format_on_save.xml",
+          "title": "XML",
+          "type": "boolean",
+          "default": false
+        }
+      ]
+    }
+  ],
+
+  "commands": {
+    "editor": [
+      {
+        "title": "Format",
+        "paletteTitle": "Format",
+        "command": "beautify.format",
+        "shortcut": "opt-shift-f",
+        "when": "editorHasFocus",
+        "filters": {
+          "syntaxes": [
+            "javascript",
+            "typescript",
+            "json",
+            
+            "css",
+            "less",
+            "scss",
+            "liquid-css",
+            "liquid-scss",
+            
+            "html",
+            "xml",
+            "html+ejs",
+            "html+erb",
+            "jinja-html",
+            "liquid-html"
+          ]
+        }
+      },
+      {
+        "separator": true
+      },
+      {
+        "title": "Format as Javascript, JSON",
+        "paletteTitle": "Format as Javascript, JSON",
+        "command": "beautify.formatAsJs",
+        "when": "editorHasFocus"
+      },
+      {
+        "title": "Format as CSS, SCSS, LESS",
+        "paletteTitle": "Format as CSS, SCSS, LESS",
+        "command": "beautify.formatAsCss",
+        "when": "editorHasFocus"
+      },
+      {
+        "title": "Format as HTML, XML",
+        "paletteTitle": "Format as HTML, XML",
+        "command": "beautify.formatAsHtml",
+        "when": "editorHasFocus"
+      }
+    ]
+  },
+  
+  "bugs": "https://github.com/patrickvuarnoz/nova-beautify/issues",
+  "repository": "https://github.com/patrickvuarnoz/nova-beautify",
+  "funding": "https://paypal.me/patrickvuarnoz/1CHF"
+}

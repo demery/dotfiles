@@ -1,0 +1,57 @@
+{
+    "identifier": "computer.gareth.ShellTools",
+    "name": "Shell Tools",
+    "organization": "Gareth Redman",
+    "description": "Edit text using shell commands",
+    "version": "1.1",
+    "categories": ["commands"],
+
+    "homepage": "https://github.com/gredman/Shell-Tools-novaextension",
+    "bugs": "https://github.com/gredman/Shell-Tools-novaextension/issues",
+    "repository": "https://github.com/gredman/Shell-Tools-novaextension",
+
+    "main": "main.js",
+
+    "activationEvents": [
+        "*"
+    ],
+
+    "entitlements": {
+        "process": true
+    },
+
+    "config": [
+        {
+            "key": "computer.gareth.ShellTools.shell.path",
+            "title": "Shell",
+            "description": "Full path to your preferred shell",
+            "type": "string",
+            "default": "/bin/sh"
+        },
+        {
+            "key": "computer.gareth.ShellTools.runSelection.prefix",
+            "title": "Run Selection Prefix",
+            "description": "Inserted before command output",
+            "type": "string",
+            "default": "> "
+        }
+    ],
+
+    "commands": {
+        "editor": [
+            {
+                "title": "Filter Text…",
+                "command": "shellTools.promptFilter"
+            },
+            {
+                "title": "Insert Output…",
+                "command": "shellTools.insertOutput"
+            },
+            {
+                "title": "Run Selection",
+                "command": "shellTools.runSelection",
+                "when": "editorHasSelection"
+            }
+        ]
+    }
+}

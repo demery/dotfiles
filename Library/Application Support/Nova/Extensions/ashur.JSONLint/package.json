@@ -1,0 +1,12 @@
+{
+  "name": "jsonlint.novaextension",
+  "version": "1.0.3",
+  "description": "A JSONLint extension for Nova",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Ashur Cabrera",
+  "license": "ISC",
+  "dependencies": {
+    "jsonlint": "^1.6.3"
+  }
+}

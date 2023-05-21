@@ -1,0 +1,33 @@
+{
+  "identifier": "com.natesilva.nova-extension.JoinLines",
+  "name": "Join Lines",
+  "organization": "Nate Silva",
+  "description": "Join lines of text.",
+  "version": "1.4",
+  "categories": ["commands"],
+  "bugs": "https://todo.sr.ht/~natesilva/join-lines-bug-reports",
+  "homepage": "https://git.sr.ht/~natesilva/JoinLines.novaextension",
+  "repository": "https://git.sr.ht/~natesilva/JoinLines.novaextension",
+  "license": "MIT",
+  "main": "main.js",
+  "activationEvents": ["*"],
+  "entitlements": {},
+  "configWorkspace": [
+    {
+      "key": "join-lines.no-trailing-whitespace",
+      "title": "No trailing whitespace",
+      "type": "boolean",
+      "default": false,
+      "description": "If enabled, the lines will be joined directly together, instead of being separated with a space."
+    }
+  ],
+  "commands": {
+    "editor": [
+      {
+        "title": "Join Lines",
+        "command": "join-lines.joinLines",
+        "shortcut": "ctrl-j"
+      }
+    ]
+  }
+}

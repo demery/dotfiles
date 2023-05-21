@@ -1,0 +1,516 @@
+{
+  "identifier": "jasonplatts.TODO",
+  "name": "TODO",
+  "organization": "Jason Platts",
+  "description": "Displays tags, such as TODO and FIXME, in a sidebar.",
+  "license":"MIT",
+  "version": "3.1.3",
+  "repository":"https://github.com/jasonplatts/nova-todo",
+  "bugs":"https://github.com/jasonplatts/nova-todo/issues",
+  "funding":"https://github.com/sponsors/jasonplatts",
+  "min_runtime": "4.1",
+  "categories": ["sidebars"],
+
+  "main": "main.js",
+
+  "activationEvents": [
+    "onLanguage:javascript"
+  ],
+
+  "entitlements": {
+    "filesystem": "readonly",
+    "process": true
+  },
+
+  "config": [
+    {
+      "key": "todo.include-global-tag-matching-options.section",
+      "title": "Global Tag Case Matching",
+      "type": "section",
+      "children": [
+        {
+          "key": "todo.global-case-sensitive-tag-matching",
+          "title": "Match Only Upper Case Tags",
+          "description": "De-select to match upper case and lower case tags (Eg: TODO: and todo:).",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "key": "todo.global-whitespace-tagging",
+          "title": "Allow whitespace tagging",
+          "description": "Select to allow TODO in additon to TODO: and [TODO]",
+          "type": "boolean",
+          "default": false
+        }
+      ]
+    },
+    {
+      "key": "todo.include-global-tags.section",
+      "title": "Global Included Tags",
+      "description": "TODO and FIXME tags are always searched. However, additional tags can be added below.",
+      "type": "section",
+      "children": [
+        {
+          "key": "todo.global-tag-broken",
+          "title": "BROKEN",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.global-tag-bug",
+          "title": "BUG",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.global-tag-debug",
+          "title": "DEBUG",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.global-tag-deprecated",
+          "title": "DEPRECATED",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.global-tag-example",
+          "title": "EXAMPLE",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.global-tag-error",
+          "title": "ERROR",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.global-tag-err",
+          "title": "ERR",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.global-tag-fail",
+          "title": "FAIL",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.global-tag-fatal",
+          "title": "FATAL",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.global-tag-fix",
+          "title": "FIX",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.global-tag-hack",
+          "title": "HACK",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.global-tag-idea",
+          "title": "IDEA",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.global-tag-info",
+          "title": "INFO",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.global-tag-note",
+          "title": "NOTE",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.global-tag-optimize",
+          "title": "OPTIMIZE",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.global-tag-question",
+          "title": "QUESTION",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.global-tag-refactor",
+          "title": "REFACTOR",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.global-tag-remove",
+          "title": "REMOVE",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.global-tag-review",
+          "title": "REVIEW",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.global-tag-task",
+          "title": "TASK",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.global-tag-trace",
+          "title": "TRACE",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.global-tag-update",
+          "title": "UPDATE",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.global-tag-upstream",
+          "title": "UPSTREAM",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.global-tag-warn",
+          "title": "WARN",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.global-tag-warning",
+          "title": "WARNING",
+          "type": "boolean",
+          "default": false
+        }
+      ]
+    },
+    {
+      "key": "todo.exclude-global-names.section",
+      "title": "Global Ignored File & Directory Names",
+      "description": "Add file & directory names that should be excluded globally.",
+      "type": "section",
+      "children": [
+        {
+          "key": "todo.global-ignore-names",
+          "title": "Ignored Names",
+          "description": "Add directory and file names that should be ignored in all workspaces. File names must include the file extension. For example: test.txt, example.js, sample.php. Several names are ignored by default, including node_modules, tmp, .git, vendor, .nova, and .gitignore.",
+          "type": "stringArray"
+        }
+      ]
+    },
+    {
+      "key": "todo.exclude-global-extensions.section",
+      "title": "Global Ignored File Extensions",
+      "description": "Add file extensions that should be excluded globally.",
+      "type": "section",
+      "children": [
+        {
+          "key": "todo.global-ignore-extensions",
+          "title": "Ignored Extensions",
+          "description": "Add file extensions that should be ignored. Extensions can include the \".\" before the extension, but it is not required. For example: txt, js, php.",
+          "type": "stringArray"
+        }
+      ]
+    }
+  ],
+
+  "config-workspace": [
+    {
+      "key": "todo.include-workspace-tag-matching-options.section",
+      "title": "Workspace Tag Case Matching",
+      "type": "section",
+      "children": [
+        {
+          "key": "todo.workspace-case-sensitive-tag-matching",
+          "title": "Tag Case Matching",
+          "description": "Change to find different tag cases, such as 'TODO:' and 'todo:'.",
+          "type": "enum",
+          "values": ["Use Global Preference", "Upper Case Only", "Upper and Lower Case"],
+          "default": "Use Global Preference"
+        },
+        {
+          "key": "todo.workspace-whitespace-tagging",
+          "title": "Allow whitespace tagging",
+          "description": "Select to allow TODO in additon to TODO: and [TODO]",
+          "type": "enum",
+          "values": ["Use Global Preference", "Not Allowed", "Allowed"],
+          "default": "Use Global Preference"
+        }
+      ]
+    },
+    {
+      "key": "todo.include-workspace-tags.section",
+      "title": "Workspace Included Tags",
+      "description": "TODO and FIXME tags are always searched. However, additional tags can be added below.",
+      "type": "section",
+      "children": [
+        {
+          "key": "todo.workspace-custom-tags",
+          "title": "Included Tags",
+          "description": "Change to include tags based on global or workspace preferences.",
+          "type": "enum",
+          "values": ["Use Global Preferences", "Use Workspace Preferences"],
+          "default": "Use Global Preferences"
+        },
+        {
+          "key": "todo.workspace-tag-broken",
+          "title": "BROKEN",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.workspace-tag-bug",
+          "title": "BUG",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.workspace-tag-debug",
+          "title": "DEBUG",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.workspace-tag-deprecated",
+          "title": "DEPRECATED",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.workspace-tag-example",
+          "title": "EXAMPLE",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.workspace-tag-error",
+          "title": "ERROR",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.workspace-tag-err",
+          "title": "ERR",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.workspace-tag-fail",
+          "title": "FAIL",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.workspace-tag-fatal",
+          "title": "FATAL",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.workspace-tag-fix",
+          "title": "FIX",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.workspace-tag-hack",
+          "title": "HACK",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.workspace-tag-idea",
+          "title": "IDEA",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.workspace-tag-info",
+          "title": "INFO",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.workspace-tag-note",
+          "title": "NOTE",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.workspace-tag-optimize",
+          "title": "OPTIMIZE",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.workspace-tag-question",
+          "title": "QUESTION",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.workspace-tag-refactor",
+          "title": "REFACTOR",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.workspace-tag-remove",
+          "title": "REMOVE",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.workspace-tag-review",
+          "title": "REVIEW",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.workspace-tag-task",
+          "title": "TASK",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.workspace-tag-trace",
+          "title": "TRACE",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.workspace-tag-update",
+          "title": "UPDATE",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.workspace-tag-upstream",
+          "title": "UPSTREAM",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.workspace-tag-warn",
+          "title": "WARN",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.workspace-tag-warning",
+          "title": "WARNING",
+          "type": "boolean",
+          "default": false
+        }
+      ]
+    },
+    {
+      "key": "todo.exclude-workspace-paths.section",
+      "title": "Workspace Ignored File & Directory Paths",
+      "description": "Add specific file and directory paths that should be excluded in the current workspace.",
+      "type": "section",
+      "children": [
+        {
+          "key": "todo.workspace-ignore-paths",
+          "title": "Ignored Paths",
+          "description": "Add directory and file names that should be ignored by the extension in the current workspace.",
+          "type": "pathArray",
+          "allowFiles": true,
+          "allowFolders": true
+        }
+      ]
+    },
+    {
+      "key": "todo.exclude-workspace-names.section",
+      "title": "Workspace Ignored File & Directory Names",
+      "description": "Add file and directory names that should be excluded in the current workspace, regardless of path.",
+      "type": "section",
+      "children": [
+        {
+          "key": "todo.workspace-ignore-names",
+          "title": "Ignored Names",
+          "description": "Add directory and file names that should be ignored in the current workspace. File names must include the file extension. For example: test.txt, example.js, sample.php.",
+          "type": "stringArray"
+        }
+      ]
+    },
+    {
+      "key": "todo.exclude-workspace-extensions.section",
+      "title": "Workspace Ignored File Extensions",
+      "description": "Add file extensions that should be excluded in the current workspace.",
+      "type": "section",
+      "children": [
+        {
+          "key": "todo.workspace-ignore-extensions",
+          "title": "Ignored Extensions",
+          "description": "Add file extensions that should be ignored in the current workspace. Extensions can include the \".\" before the extension, but it is not required. For example: txt, js, php.",
+          "type": "stringArray"
+        }
+      ]
+    }
+  ],
+
+  "sidebars": [
+    {
+      "id": "todo",
+      "name": "TODO",
+      "smallImage": "todo-small",
+      "largeImage": "todo-large",
+      "sections": [
+        {
+          "id": "todo",
+          "name": "TODOS",
+          "allowMultiple": false,
+          "placeholderText": "No tags found.\nMonitoring...",
+          "placeholderImage": "sidebar-placeholder",
+          "headerCommands": [
+            {
+              "title": "Group",
+              "image": "group",
+              "tooltip": "Group By",
+              "command": "todo.group"
+            },
+            {
+              "title": "Refresh",
+              "image": "refresh",
+              "tooltip": "Refresh",
+              "command": "todo.refresh"
+            }
+          ],
+          "contextCommands": [
+            {
+              "title": "Open",
+              "command": "todo.openFile"
+            },
+            {
+              "title": "Ignore File in Current Workspace",
+              "command": "todo.ignoreFile"
+            },
+            {
+              "title": "Ignore Parent Directory in Current Workspace",
+              "command": "todo.ignoreParentDirectory"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
