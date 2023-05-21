@@ -1,0 +1,39 @@
+{
+  "clips" : [
+    {
+      "content" : "import pdb; pdb.set_trace()",
+      "name" : "debug python",
+      "scope" : "editor",
+      "syntax" : "python",
+      "trigger" : "pdb;"
+    },
+    {
+      "content" : "def ${:name}(${:args}) -> ${:returns}:\n    ${:pass}",
+      "name" : "define function",
+      "scope" : "editor",
+      "syntax" : "python",
+      "trigger" : "deff"
+    },
+    {
+      "content" : "def ${:name}(self, ${:args}) -> ${:returns}:\n\t${}",
+      "name" : "method definition",
+      "scope" : "editor",
+      "syntax" : "python",
+      "trigger" : "defm"
+    },
+    {
+      "content" : "\t\t\t\"descriptions\": {\n\t\"en\": {\n\t\t\"language\": \"en\",\n\t\t\"value\": \"$0\"\n\t}\n},",
+      "name" : "Wikdata JSON descriptions ",
+      "scope" : "editor",
+      "syntax" : "json",
+      "trigger" : "desc;"
+    },
+    {
+      "content" : "if ${:condtion}: import pdb; pdb.set_trace()",
+      "name" : "python debug if",
+      "scope" : "editor",
+      "syntax" : "python",
+      "trigger" : "ifpdb"
+    }
+  ]
+}
