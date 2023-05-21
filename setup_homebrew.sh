@@ -1,5 +1,15 @@
 #!/usr/bin/env bash
 
+###############################################################################
+# Script Name    : setup_homebrew.sh
+# Description    : Install homebrew and basic packages (bash, rbenv, pyenv,
+#                  etc.), upgraded existing packages if homebrew is already
+#                  installed; installs the latest versions of ruby and python
+# Args           : None
+# Author         : Doug Emery
+# Email          : hummus.augment_0r@icloud.com
+###############################################################################
+
 shopt -s expand_aliases
 source $(dirname $0)/functions.sh
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )

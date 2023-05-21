@@ -1,5 +1,25 @@
 #!/usr/bin/env bash
 
+###############################################################################
+# Script Name    : setup_nova.sh
+# Description    : Link Nova extensions and preferences to
+#                  `~/Library`
+# Args           : None
+# Author         : Doug Emery
+# Email          : hummus.augment_0r@icloud.com
+#
+# See:
+#
+#   https://help.panic.com/nova/moving-data/
+#
+# Note this method does not handle code clips. For that the doc
+# says:
+#
+# > Clips can be exported to a file from the Clips Sidebar by clicking the
+# > gear icon at the bottom and choosing Export Clips… from the menu, and can
+# > be imported from a file using the Import Clips… option in the same menu.
+###############################################################################
+
 shopt -s expand_aliases
 source $(dirname $0)/functions.sh
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
@@ -24,9 +44,9 @@ else
 fi
 
 # quit if Nova is running
-if ps -ef | sed /grep/d | grep -q "Nova.app.*/Nova$"
+if is_running "Nova.app.*/Nova$"
 then
-  error "Refusing to setup while Nova is running"
+  error "Refusing to run setup while Nova is running"
 fi
 
 # quit if there's no Nova directory in Application Support

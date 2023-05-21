@@ -18,9 +18,9 @@ else
 fi
 
 # quit if sublime is running
-if ps -ef | sed /grep/d | grep -q "Sublime Text"
+if is_running "Sublime Text"
 then
-  error "Refusing to setup while Sublime Text is running"
+  error "Refusing to run setup while Sublime Text is running"
 fi
 
 # quit if there's no Packages directory
