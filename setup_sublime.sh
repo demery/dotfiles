@@ -4,10 +4,18 @@ shopt -s expand_aliases
 source $(dirname $0)/functions.sh
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
-packages="${HOME}/Library/Application Support/Sublime Text/packages"
+if ls -d "${HOME}/Library/Application Support/Sublime Text"* >/dev/null 2>&1
+then
+  SUBLIME_SUPPORT=$(ls -d "${HOME}/Library/Application Support/Sublime Text"* | head -1)
+  msg "Using SUBLIME_SUPPORT dir: ${SUBLIME_SUPPORT}"
+else
+  error "No Sublime Text directory found ${HOME}/Library/Application Support"
+fi
+
+packages="${SUBLIME_SUPPORT}/packages"
 user_packages="${packages}/User"
 user_packages_backup=${user_packages}.$(tstamp)
-source_packages="${SCRIPT_DIR}/Library/Application Support/Sublime Text/packages/User"
+source_packages="${SUBLIME_SUPPORT}/packages/User"
 
 # quit if sublime isn't installed
 if is_installed "Sublime Text"
