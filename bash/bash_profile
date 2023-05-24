@@ -56,14 +56,14 @@ if [[ -f "$HOME/.amazon_keys" ]]; then
   source "$HOME/.amazon_keys";
 fi
 ##
-if [ -d $HOME/.secrets ]; then
-   for file in $HOME/.secrets/*
-   do
-       if [ -s $file ]; then
-          source $file
-       fi
-   done
-fi
+# if [ -d $HOME/.secrets ]; then
+#    for file in $HOME/.secrets/*
+#    do
+#        if [ -s $file ]; then
+#           source $file
+#        fi
+#    done
+# fi
 ##
 ###############################################################################
 # iTerm2 stuff
