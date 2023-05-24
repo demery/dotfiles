@@ -10,6 +10,7 @@ export HISTCONTROL=ignoredups:erasedups
 export HISTFILESIZE=1000000
 export HISTSIZE=1000000
 
+HOMEBREW_PREFIX=$( [[ -e /opt/homebrew ]] && echo /opt/homebrew || echo /usr/local )
 #export FUSEKI_HOME=$HOME/dev/Java/apache-jena-fuseki-3.11.0
 #export JENA_HOME=$HOME/dev/Java/apache-jena-3.11.0
 
@@ -100,7 +101,7 @@ fi
 
 ##
 # Bash completion
-[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
+[[ -r "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh" ]] && . "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
 
 
 ##
