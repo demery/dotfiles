@@ -14,7 +14,11 @@ shopt -s expand_aliases
 source $(dirname $0)/functions.sh
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
-HOMEBREW_PACKAGES="rbenv ruby-build coreutils tree vim git bash bash-completion pyenv npm dos2unix"
+HOMEBREW_PACKAGES="rbenv ruby-build coreutils tree vim git bash bash-completion pyenv npm dos2unix ipython"
+
+LATEST_PYTHON3=$(brew search /^python@3/ | gsort -Vr | head -1)
+
+[[ -n "$LATEST_PYTHON3" ]] && HOMEBREW_PACKAGES="${HOMEBREW_PACKAGES} ${LATEST_PYTHON3}"
 
 if which -s brew
 then
