@@ -122,4 +122,13 @@ then
      git add ${source_prefs}
      git commit -m "Udating Nova prefs"
 EOF
+else
+  warning "Nova preferences are out of sync:"
+  warning "${source_prefs}"
+  warning "   is new than: ${source_prefs}"
+  msg "Run the following to update your Nova preferences"
+  cat <<EOF
+
+    cp ${source_prefs} ${nova_prefs}
+EOF
 fi
