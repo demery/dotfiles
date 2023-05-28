@@ -91,15 +91,6 @@ stt_both $(hostname)
 which -s rbenv && eval "$(rbenv init -)" || echo "WARNING: rbenv not found"
 
 ##
-# Pyenv
-PYENV_ROOT=${HOME}./pyenv
-
-if [[ -e ${PYENV_ROOT} ]]
-then
-  eval "$(pyenv init -)"
-fi
-
-##
 # Bash completion
 [[ -r "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh" ]] && . "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
 
@@ -205,3 +196,11 @@ export SCM_CHECK=true
 ##
 # Load Bash It
 source "$BASH_IT"/bash_it.sh
+
+function feature_branch {
+  fb_number=$1
+  fb_name="${@:2}" # get the rest of the arguments
+
+  fb_normal_name=$(sed 's/[^A-Za-z0-9_-][^A-Za-z0-9_-]*/-/g' <<< "${fb_name}" | tr 'A-Z' 'a-z')
+  echo "${fb_number}-${fb_normal_name}"
+}
