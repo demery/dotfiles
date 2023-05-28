@@ -34,6 +34,62 @@
       "scope" : "editor",
       "syntax" : "python",
       "trigger" : "ifpdb"
+    },
+    {
+      "content" : "@property\ndef ${0:property_name}(self):\n\treturn self._${0:property_name}\n\n@${0:property_name}.setter\ndef ${0:property_name}(self, ${0:property_name}):\n\tself._${0:property_name} = ${0:property_name}\n${1:deleteme}",
+      "name" : "@property.get\/set",
+      "scope" : "editor",
+      "syntax" : "python",
+      "trigger" : ";psg"
+    },
+    {
+      "content" : "@${0:property_name}.setter\ndef ${0:property_name}(self, ${0:property_name}):\n\tself._${0:property_name} = ${0:property_name}\n${1:deleteme}",
+      "name" : "@property.setter",
+      "scope" : "editor",
+      "syntax" : "python",
+      "trigger" : ";ps"
+    },
+    {
+      "content" : "@property\ndef ${0:property_name}(self):\n\treturn self._${0:property_name}\n${1:deleteme}",
+      "name" : "@property",
+      "scope" : "editor",
+      "syntax" : "python",
+      "trigger" : ";pg"
+    },
+    {
+      "content" : "def __init__(self${0:args}):\n\t${1:pass}",
+      "name" : "def __init__(self)",
+      "scope" : "editor",
+      "syntax" : "python",
+      "trigger" : "initt"
+    },
+    {
+      "content" : "self._${0:property} = ${0:property}",
+      "name" : "self._prop = prop",
+      "scope" : "editor",
+      "syntax" : "python",
+      "trigger" : "self._"
+    },
+    {
+      "content" : "self.${0:property} = ${0:property}",
+      "name" : "self.property = property",
+      "scope" : "editor",
+      "syntax" : "python",
+      "trigger" : "self."
+    },
+    {
+      "content" : "class ${0:ClassName}:\n\t'''${1:Class description}\n\t'''",
+      "name" : "class Name:",
+      "scope" : "editor",
+      "syntax" : "python",
+      "trigger" : "class"
+    },
+    {
+      "content" : "@classmethod\ndef ${0:method_name}(cls${1:, args...}):\n\t${3:pass}",
+      "name" : "@classmethod",
+      "scope" : "editor",
+      "syntax" : "python",
+      "trigger" : "@cls"
     }
   ]
 }
