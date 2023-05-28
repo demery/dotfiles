@@ -57,60 +57,79 @@ else
  error "Nova support directory not found: ${nova_folder}"
 fi
 
-# quit if current Nova extensions dir is a symlink
-[[ -L "${extensions}" ]] && error "Already symlinked: ${extensions}"
-
-[[ -L "${nova_prefs}" ]] && error "Already symlinked: ${nova_prefs}"
-
-which -s pip3 || error "Please install pip3"
-msg "Installing the python-language-server"
-pip3 install 'python-language-server[all]'
-pip3 install pyls-mypy
-pip3 install pyls-isort
-pip3 install pyls-black
-
-# backup current extensions directory and preferences
-for thing in "${extensions}" "${nova_prefs}"
-do
-  timestamp=$(tstamp)
-  if [[ -e "${thing}" ]]
+# link extensions and preferences is needed
+timestamp=$(tstamp)
+if [[ -L "${extensions}" ]]
+then
+  warning "Already symlinked: ${extensions}"
+else
+  # backup the extensions
+  if [[ -e "${extensions}" ]]
   then
-    thing_backup="${thing}.${timestamp}"
-    msg "Backing up: ${thing}"
-    mv "${thing}" "${thing_backup}" || error "Unable to to backup ${thing}"
+    thing_backup="${extensions}.${timestamp}"
+    msg "Backing up: ${extensions}"
+    mv "${extensions}" "${thing_backup}" || error "Unable to to backup ${extensions}"
     msg "Backed up ${thing_backup}"
   fi
-done
 
-##
-# link local Nova Preferences to ~/Library/Preferences
-##
-msg "Create symlink: ${nova_prefs} ->"
-msg "        ${source_prefs}"
-(
+  ##
+  # link local Nova Extensions dir to Nova support dir
+  ##
+  msg "Create symlink: ${extensions} ->"
+  msg "        ${source_extensions}"
+  (
+    cd "${nova_folder}"
+    ln -s "${source_extensions}"
+  )
+  if ls -l "${extensions}" >/dev/null
+  then
+    msg "Nova Extensions are now available"
+  else
+    error "Something went wrong; Nova Extensions not installed"
+  fi
+fi
+
+if [[ -L "${nova_prefs}" ]]
+then
+  warning "Already symlinked: ${nova_prefs}"
+else
+  # back up the nova_prefs
+  if [[ -e "${nova_prefs}" ]]
+  then
+    thing_backup="${nova_prefs}.${timestamp}"
+    msg "Backing up: ${nova_prefs}"
+    mv "${nova_prefs}" "${thing_backup}" || error "Unable to to backup ${nova_prefs}"
+    msg "Backed up ${thing_backup}"
+  fi
+  ##
+  # link local Nova Preferences to ~/Library/Preferences
+  ##
+  msg "Create symlink: ${nova_prefs} ->"
+  msg "        ${source_prefs}"
+  (
   cd "${prefs_folder}"
   ln -s "${source_prefs}"
-)
-if ls -l "${nova_prefs}"
-then
-  msg "Nove Preferences are now available"
-else
-  error "Something went wrong; Nova Preferences not installed"
+  )
+  if ls -l "${nova_prefs}"
+  then
+    msg "Nova Preferences are now available"
+  else
+    error "Something went wrong; Nova Preferences not installed"
+  fi
 fi
 
 ##
-# link local Nova Extensions dir to Nova support dir
+# Install the python language server stuff
 ##
-msg "Create symlink: ${extensions} ->"
-msg "        ${source_extensions}"
-(
-  cd "${nova_folder}"
-  ln -s "${source_extensions}"
-)
-if ls -l "${extensions}" >/dev/null
-then
-  msg "Nova Extensions are now available"
-else
-  error "Something went wrong; Nova Extensions not installed"
-fi
+# make sure homebrew bin directory is the first in the path
+msg "Installing the python-language-server"
+pip3 install 'python-language-server[all]'
+packages="pyls-mypy pyls-isort pyls-black"
+pip3 install ${packages}
+msg "SUCCESS! Python language server installed"
+msg
+msg "Add the following to Nova.app Python extension prefs:"
+msg
+msg "   $(which python3)"
+msg "   $(which pyls)"
 

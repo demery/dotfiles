@@ -66,13 +66,10 @@ fi
 # set up python
 
 # install the latest python
-python_version=$(pyenv install --list | egrep "^\s+\d\.\d+\.\d+$" | tail -1)
-
-if pyenv versions | grep -q ${python_version}
+pyenv_install_python
+python_version=$(latest_pyenv_version)
+if [[ -n "${python_version}" ]]
 then
-  msg "Python version ${python_version} already installed"
-else
-  msg "Installing Python version ${python_version}"
-  pyenv install ${python_version}
+  msg "Setting global python version to ${python_version}"
+  pyenv global ${python_version}
 fi
-

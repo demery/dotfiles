@@ -41,6 +41,10 @@ function error {
   exit 1
 }
 
+function warning {
+  msg "WARNING: $1"
+}
+
 function error_no_exit {
   msg "ERROR: $1"
 }
@@ -106,6 +110,49 @@ function brew_install_python {
     return 1
   fi
 }
+
+function update_pyenv {
+  if ! which -s brew
+  then
+    error_no_exit "Homebrew not found; please install homebrew or add it to your path"
+    return 1
+  fi
+  brew upgrade pyenv
+}
+
+function latest_pyenv_version {
+  if ! which -s pyenv
+  then
+    error_no_exit "PYENV not installed"
+    return 1
+  fi
+  if update_pyenv
+  then
+    python_version=$(pyenv install --list | egrep "^\s+\d\.\d+\.\d+$" | tail -1)
+    echo ${python_version}
+  else
+    return 1
+  fi
+
+}
+function pyenv_install_python {
+  python_version=$(latest_pyenv_version)
+  if [[ -z "${python_version}" ]]
+  then
+     error_no_exit "Unable to get latest python version from pyenv"
+     return 1
+  fi
+
+  if pyenv versions | grep -q ${python_version}
+  then
+    msg "Python version ${python_version} already installed"
+  else
+    msg "Installing Python version ${python_version}"
+    pyenv install ${python_version}
+  fi
+}
+
+
 
 ##
 # Find the latest pip3.x
