@@ -89,35 +89,6 @@ else
   fi
 fi
 
-if [[ -L "${nova_prefs}" ]]
-then
-  warning "Already symlinked: ${nova_prefs}"
-else
-  # back up the nova_prefs
-  if [[ -e "${nova_prefs}" ]]
-  then
-    thing_backup="${nova_prefs}.${timestamp}"
-    msg "Backing up: ${nova_prefs}"
-    mv "${nova_prefs}" "${thing_backup}" || error "Unable to to backup ${nova_prefs}"
-    msg "Backed up ${thing_backup}"
-  fi
-  ##
-  # link local Nova Preferences to ~/Library/Preferences
-  ##
-  msg "Create symlink: ${nova_prefs} ->"
-  msg "        ${source_prefs}"
-  (
-  cd "${prefs_folder}"
-  ln -s "${source_prefs}"
-  )
-  if ls -l "${nova_prefs}"
-  then
-    msg "Nova Preferences are now available"
-  else
-    error "Something went wrong; Nova Preferences not installed"
-  fi
-fi
-
 ##
 # Install the python language server stuff
 ##
@@ -132,4 +103,23 @@ msg "Add the following to Nova.app Python extension prefs:"
 msg
 msg "   $(which python3)"
 msg "   $(which pyls)"
+msg
 
+## We can't symlink preferences. Nova writes prefs directly
+# the file and overwrites in symlinks.
+#
+# Just check to see which is newer.
+if [[ ${nova_prefs} -nt ${source_prefs} ]]
+then
+  warning "Nova preferences are out of sync:"
+  warning "${nova_prefs}"
+  warning "  is newer than: ${source_prefs}"
+  msg "To update this repo's version run:"
+  cat << EOF
+
+     cp ${nova_prefs} ${source_prefs}
+     cd ${HOME}/.dotfiles
+     git add ${source_prefs}
+     git commit -m "Udating Nova prefs"
+EOF
+fi
