@@ -1,0 +1,116 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
+source ~/.zplug/init.zsh
+# Plugins
+zplug "plugins/git",   from:oh-my-zsh
+zplug "plugins/osx",   from:oh-my-zsh
+zplug "zsh-users/zsh-autosuggestions"
+zplug "clvv/fasd"
+zplug "b4b4r07/enhancd"
+zplug "junegunn/fzf"
+zplug "Peltoche/lsd"
+zplug "romkatv/powerlevel10k", as:theme, depth:1
+
+feature_branch() {
+  if [[ -z "$@" ]]
+  then
+    echo "Usage: feature_branch ISSUE# ISSUE TEXT"
+    echo
+    echo "Output: feature/<ISSUE#>-issue-text"
+    echo
+    return 1
+  fi
+  tr 'A-Z' 'a-z' <<< "$@" | sed 's/[^a-z0-9][^a-z0-9]*/-/g' | awk '{ print "feature/" $0 }'
+}
+
+alias fbr=feature_branch
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+# Let me clobbber files
+setopt clobber
+# stop polluting history across sessions
+unsetopt share_history
+
+export WORDCHARS=
+
+export EDITOR="/usr/bin/vim"
+export VISUAL=/usr/bin/vim
+
+export HISTCONTROL=ignoredups:erasedups
+export HISTFILESIZE=1000000
+export HISTSIZE=1000000
+
+# export FUSEKI_HOME=$HOME/dev/Java/apache-jena-fuseki-3.11.0
+# export JENA_HOME=$HOME/dev/Java/apache-jena-3.11.0
+
+PATH=/usr/local/bin:$PATH
+PATH=/usr/local/sbin:$PATH
+PATH=$PATH:$HOME/bin
+PATH=$PATH:$HOME/scripts
+PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
+
+# PATH=$PATH:$FUSEKI_HOME
+# PATH=$PATH:$FUSEKI_HOME/bin
+# PATH=$PATH:$JENA_HOME/bin
+
+# PATH=$PATH:$HOME/.cargo/bin
+
+# Poetry install itself in ~/.local for some reason; sigh
+# PATH=$PATH:$HOME/.local/bin
+
+export PATH
+
+alias l="ls -F"
+alias l1="l -1"
+alias ll="l -lh"
+alias lrt="ll -rt" # sort by time, ascending order
+alias lal="ll -a"
+
+alias gi="gem install --no-rdoc --no-ri"
+alias openx="open -a \"Microsoft Excel\""
+alias sxp=strip_xpath
+alias vish="vim -c 'set ft=sh'"
+alias vivid="vim -c 'colorscheme vividchalk'"
+alias wl="wc -l"
+alias femacs="emacs --no-init-file"
+alias rubymine="open -a RubyMine"
+alias subl='open -a "Sublime Text"'
+alias tstamp='date +%Y%m%dT%H%M%S-%Z'
+
+alias gst="git status"
+alias gpu="git pull"
+alias gcom="git commit"
+alias gcho="git checkout"
+alias gll="git log -n 1"
+alias gdf="git diff"
+
+
+# print ISO formatted date time
+alias idate="date +%FT%T%z"
+
+eval "$(rbenv init -)"
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/shims:$PATH"
+eval "$(pyenv init -)"
