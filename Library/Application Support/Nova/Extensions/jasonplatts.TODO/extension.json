@@ -4,7 +4,7 @@
   "organization": "Jason Platts",
   "description": "Displays tags, such as TODO and FIXME, in a sidebar.",
   "license":"MIT",
-  "version": "3.1.3",
+  "version": "3.1.4",
   "repository":"https://github.com/jasonplatts/nova-todo",
   "bugs":"https://github.com/jasonplatts/nova-todo/issues",
   "funding":"https://github.com/sponsors/jasonplatts",
@@ -197,6 +197,12 @@
         {
           "key": "todo.global-tag-warning",
           "title": "WARNING",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.global-tag-xxx",
+          "title": "XXX",
           "type": "boolean",
           "default": false
         }
@@ -417,6 +423,12 @@
         {
           "key": "todo.workspace-tag-warning",
           "title": "WARNING",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "key": "todo.workspace-tag-xxx",
+          "title": "XXX",
           "type": "boolean",
           "default": false
         }

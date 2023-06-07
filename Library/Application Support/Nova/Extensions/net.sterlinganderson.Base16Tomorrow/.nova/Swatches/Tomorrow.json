@@ -1,0 +1,79 @@
+{
+  "swatches" : [
+    {
+      "color" : "#ffffffff",
+      "name" : "base00",
+      "space" : "srgb"
+    },
+    {
+      "color" : "#d6d6d6ff",
+      "name" : "base02",
+      "space" : "srgb"
+    },
+    {
+      "color" : "#8e908cff",
+      "name" : "base03",
+      "space" : "srgb"
+    },
+    {
+      "color" : "#969896ff",
+      "name" : "base04",
+      "space" : "srgb"
+    },
+    {
+      "color" : "#4d4d4cff",
+      "name" : "base05",
+      "space" : "srgb"
+    },
+    {
+      "color" : "#282a2eff",
+      "name" : "base06",
+      "space" : "srgb"
+    },
+    {
+      "color" : "#1d1f21ff",
+      "name" : "base07",
+      "space" : "srgb"
+    },
+    {
+      "color" : "#c82829ff",
+      "name" : "base08",
+      "space" : "srgb"
+    },
+    {
+      "color" : "#f5871fff",
+      "name" : "base09",
+      "space" : "srgb"
+    },
+    {
+      "color" : "#eab700ff",
+      "name" : "base0A",
+      "space" : "srgb"
+    },
+    {
+      "color" : "#718c00ff",
+      "name" : "base0B",
+      "space" : "srgb"
+    },
+    {
+      "color" : "#3e999fff",
+      "name" : "base0C",
+      "space" : "srgb"
+    },
+    {
+      "color" : "#4271aeff",
+      "name" : "base0D",
+      "space" : "srgb"
+    },
+    {
+      "color" : "#8959a8ff",
+      "name" : "base0E",
+      "space" : "srgb"
+    },
+    {
+      "color" : "#a3685aff",
+      "name" : "base0F",
+      "space" : "srgb"
+    }
+  ]
+}

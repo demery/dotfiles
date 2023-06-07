@@ -1,0 +1,9 @@
+{
+    "identifier": "net.sterlinganderson.Base16Tomorrow",
+    "name": "Base16 Tomorrow",
+    "organization": "Sterling Anderson",
+    "description": "Nova Theme based off of the Base16 Tomorrow color scheme by Chris Kempson (https://github.com/chriskempson/base16-tomorrow-scheme)",
+    "bugs": "https://github.com/strlng/Base16-Tomorrow.novaextension/issues",
+    "version": "1.1.2",
+    "categories": ["themes"]
+}

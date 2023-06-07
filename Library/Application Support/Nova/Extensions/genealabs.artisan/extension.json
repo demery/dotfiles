@@ -1,0 +1,10 @@
+{
+    "identifier": "genealabs.artisan",
+    "name": "Artisan",
+    "organization": "GeneaLabs",
+    "description": "A development theme that is easy on the eyes, great for getting in the zone, or long development stints.",
+    "version": "0.1.0",
+    "categories": ["themes"],
+    "repository": "https://github.com/GeneaLabs/nova-artisan-theme",
+    "bugs": "https://github.com/GeneaLabs/nova-artisan-theme/issues/new"
+}

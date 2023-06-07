@@ -1,0 +1,11 @@
+{
+  "identifier": "holler.CatppuccinTheme",
+  "name": "Catppuccin",
+  "organization": "Holler",
+  "description": "Catppuccin for Nova",
+  "version": "1.4",
+  "categories": ["themes"],
+  "bugs": "https://github.com/catppuccin/nova/issues",
+  "homepage": "https://daveyholler.com",
+  "repository": "https://github.com/catppuccin/nova"
+}
