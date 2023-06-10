@@ -55,16 +55,6 @@ done
 
 export PATH
 
-alias gi="gem install --no-rdoc --no-ri"
-alias openx="open -a \"Microsoft Excel\""
-alias sxp=strip_xpath
-alias vish="vim -c 'set ft=sh'"
-alias vivid="vim -c 'colorscheme vividchalk'"
-alias wl="wc -l"
-alias femacs="emacs --no-init-file"
-alias rubymine="open -a RubyMine"
-alias subl='open -a "Sublime Text"'
-alias tstamp='date +%Y%m%dT%H%M%S-%Z'
 ##
 # directory aliases
 ##
@@ -222,3 +212,23 @@ function feature_branch {
   fb_normal_name=$(sed 's/[^A-Za-z0-9_-][^A-Za-z0-9_-]*/-/g' <<< "${fb_name}" | tr 'A-Z' 'a-z')
   echo "${fb_number}-${fb_normal_name}"
 }
+
+##
+# Add aliases after bash_it loads so they don't get stepped on
+# command aliases
+alias l="ls -F"
+alias ll="l -lh"
+alias lal="ll -a"
+alias lll=lal
+alias lrt="ll -rt" # time modified; ascending order
+
+alias gi="gem install --no-rdoc --no-ri"
+alias openx="open -a \"Microsoft Excel\""
+alias sxp=strip_xpath
+alias vish="vim -c 'set ft=sh'"
+alias vivid="vim -c 'colorscheme vividchalk'"
+alias wl="wc -l"
+alias femacs="emacs --no-init-file"
+alias rubymine="open -a RubyMine"
+alias subl='open -a "Sublime Text"'
+alias tstamp='date +%Y%m%dT%H%M%S-%Z'
