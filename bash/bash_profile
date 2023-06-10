@@ -11,32 +11,49 @@ export HISTFILESIZE=1000000
 export HISTSIZE=1000000
 
 HOMEBREW_PREFIX=$( [[ -e /opt/homebrew ]] && echo /opt/homebrew || echo /usr/local )
-#export FUSEKI_HOME=$HOME/dev/Java/apache-jena-fuseki-3.11.0
-#export JENA_HOME=$HOME/dev/Java/apache-jena-3.11.0
+export FUSEKI_HOME=$HOME/Java/apache-jena-fuseki-4.8.0
+export JENA_HOME=$HOME/Java/apache-jena-4.8.0
 
+##
+# Determine whether path exists and isn't already in $PATH.
+function add_path() {
+  # exit 1 if the path doesn't exist
+  [[ -e "${1}" ]] || return 1
 
-PATH=/usr/local/bin:$PATH
-PATH=/usr/local/sbin:$PATH
-PATH=/opt/homebrew/bin:$PATH
-PATH=$PATH:$HOME/bin
-PATH=$PATH:$HOME/scripts
+  # exit 1 if the path is already in path
+  grep -q "^${path}$" <(echo "$(tr ':' '\n' <<< $PATH)") && return 1
 
-PATH=$PATH:$FUSEKI_HOME
-PATH=$PATH:$FUSEKI_HOME/bin
-PATH=$PATH:$JENA_HOME/bin
+  return 0
+}
 
-PATH=$PATH:$HOME/.cargo/bin
+# add these paths to the end of $PATH
+postfix_paths="
+/usr/local/bin
+/usr/local/sbin
+${FUSEKI_HOME}
+${FUSEKI_HOME}/bin
+${JENA_HOME}/bin
+"
 
-# Poetry install itself in ~/.local for some reason; sigh
-PATH=$PATH:$HOME/.local/bin
+for p in ${postfix_paths}
+do
+  add_path ${p} && PATH=${PATH}:${p}
+done
+
+# prepend these paths to $PATH
+prefix_paths="
+${HOMEBREW_PREFIX}/bin
+${HOMEBREW_PREFIX}/opt/openjdk/bin
+${HOME}/.local/bin
+${HOME}/bin
+${HOME}/scripts
+"
+for p in ${prefix_paths}
+do
+  add_path ${p} && PATH=${p}:${PATH}
+done
 
 export PATH
-
-# command aliases
-alias l="ls -F"
-alias ll="l -lh"
-alias lal="ll -a"
-alias lll=lal
 
 alias gi="gem install --no-rdoc --no-ri"
 alias openx="open -a \"Microsoft Excel\""
