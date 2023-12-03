@@ -13,6 +13,7 @@ export HISTSIZE=1000000
 HOMEBREW_PREFIX=$( [[ -e /opt/homebrew ]] && echo /opt/homebrew || echo /usr/local )
 export FUSEKI_HOME=$HOME/Java/apache-jena-fuseki-4.8.0
 export JENA_HOME=$HOME/Java/apache-jena-4.8.0
+[[ -e /opt/homebrew/opt/openjdk ]] && export JAVA_HOME=/opt/homebrew/opt/openjdk
 
 ##
 # Determine whether path exists and isn't already in $PATH.
@@ -53,6 +54,7 @@ do
   add_path ${p} && PATH=${p}:${PATH}
 done
 
+[[ -e /opt/homebrew/opt/mysql@5.7/bin ]] &&  PATH="/opt/homebrew/opt/mysql@5.7/bin:$PATH"
 export PATH
 
 ##
@@ -63,6 +65,10 @@ alias idate="date +%FT%T%z"
 ##
 if [[ -f "$HOME/.amazon_keys" ]]; then
   source "$HOME/.amazon_keys";
+fi
+
+if [[ -f "$HOME/.opennrc" ]]; then
+  source "$HOME/.opennrc"
 fi
 ##
 # if [ -d $HOME/.secrets ]; then
@@ -76,7 +82,6 @@ fi
 ##
 ###############################################################################
 # iTerm2 stuff
-[[ -f  ~/.iterm2_shell_integration.bash ]] && source ~/.iterm2_shell_integration.bash
 ##
 # Thos the hostname in the iterm2 window bar.
 # $1 = type; 0 - both, 1 - tab, 2 - title
