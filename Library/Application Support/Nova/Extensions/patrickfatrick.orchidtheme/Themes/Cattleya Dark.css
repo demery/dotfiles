@@ -67,12 +67,12 @@ meta.text.invisible {
   color: #B28773;
 }
 meta.text.selected {
-  color: #405960;
+  background-color: #195f33;
 }
 
 /* Cursor */
 meta.cursor {
-  background: none;
+  background: #2b223b;
 }
 
 /* Indentation Guides */
@@ -151,18 +151,22 @@ identifier {
 identifier.name {
 	color: #FFDAA5;
 }
+type,
 identifier.type {
   color: #00FFFF;
 }
+variable,
 identifier.constant {
 	color: #FF9A69;
 }
 identifier.variable {
   color: #fd8877;
 }
+object.property,
 identifier.property {
 	color: #FFDAA5;
 }
+function,
 identifier.decorator,
 identifier.function,
 identifier.method {

@@ -1,3 +1,15 @@
+## Version 1.7.2
+
+* Updated JS-Beautify to 1.14.9
+
+## Version 1.7.1
+
+* Updated JS-Beautify to 1.14.9
+
+## Version 1.7
+
+* Updated JS-Beautify to 1.14.8
+
 ## Version 1.6
 
 * Added (experimental) support for `HTML (EJS)` and `HTML (ERB)`
