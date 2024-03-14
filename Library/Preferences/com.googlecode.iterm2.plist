@@ -19791,7 +19791,7 @@
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
-			<string>ds/ds-prototype</string>
+			<string>ds-prototype</string>
 			<key>Non Ascii Font</key>
 			<string>Monaco 12</string>
 			<key>Non-ASCII Anti Aliased</key>
@@ -20210,7 +20210,7 @@
 			<false/>
 			<key>Tags</key>
 			<array>
-				<string>ds/code</string>
+				<string>ds</string>
 			</array>
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
@@ -20843,7 +20843,7 @@
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
-			<string>ds/ds-schema</string>
+			<string>ds-schema</string>
 			<key>Non Ascii Font</key>
 			<string>Monaco 12</string>
 			<key>Non-ASCII Anti Aliased</key>
@@ -21262,7 +21262,7 @@
 			<false/>
 			<key>Tags</key>
 			<array>
-				<string>ds/code</string>
+				<string>ds</string>
 			</array>
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
@@ -21895,7 +21895,7 @@
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
-			<string>ds/ds-import</string>
+			<string>ds-import</string>
 			<key>Non Ascii Font</key>
 			<string>Monaco 12</string>
 			<key>Non-ASCII Anti Aliased</key>
@@ -22314,7 +22314,7 @@
 			<false/>
 			<key>Tags</key>
 			<array>
-				<string>ds/code</string>
+				<string>ds</string>
 			</array>
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
@@ -23192,7 +23192,7 @@
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
-			<string>ds/ds-convert</string>
+			<string>ds-convert</string>
 			<key>Non Ascii Font</key>
 			<string>Monaco 12</string>
 			<key>Non-ASCII Anti Aliased</key>
@@ -23619,7 +23619,7 @@
 			<false/>
 			<key>Tags</key>
 			<array>
-				<string>ds/code</string>
+				<string>ds</string>
 			</array>
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
@@ -24336,7 +24336,7 @@
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
-			<string>ds/ds-data</string>
+			<string>ds-data</string>
 			<key>Non Ascii Font</key>
 			<string>Monaco 12</string>
 			<key>Non-ASCII Anti Aliased</key>
@@ -24763,7 +24763,7 @@
 			<false/>
 			<key>Tags</key>
 			<array>
-				<string>ds/data</string>
+				<string>ds</string>
 			</array>
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
@@ -25398,7 +25398,7 @@
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
-			<string>ds/ds-exports-DEV</string>
+			<string>ds-exports-DEV</string>
 			<key>Non Ascii Font</key>
 			<string>Monaco 12</string>
 			<key>Non-ASCII Anti Aliased</key>
@@ -25817,7 +25817,7 @@
 			<false/>
 			<key>Tags</key>
 			<array>
-				<string>ds/data</string>
+				<string>ds</string>
 			</array>
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
@@ -26452,7 +26452,7 @@
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
-			<string>ds/ds-member-data</string>
+			<string>ds-member-data</string>
 			<key>Non Ascii Font</key>
 			<string>Monaco 12</string>
 			<key>Non-ASCII Anti Aliased</key>
@@ -26871,7 +26871,7 @@
 			<false/>
 			<key>Tags</key>
 			<array>
-				<string>ds/data</string>
+				<string>ds</string>
 			</array>
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
