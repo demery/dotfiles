@@ -54,12 +54,25 @@ do
   add_path ${p} && PATH=${p}:${PATH}
 done
 
+[[ -e /Applications/MongoDB.app ]] && PATH="/Applications/MongoDB.app/Contents/Resources/Vendor/mongodb/bin:$PATH"
+
 [[ -e /opt/homebrew/opt/mysql@5.7/bin ]] &&  PATH="/opt/homebrew/opt/mysql@5.7/bin:$PATH"
 export PATH
 
 ##
 # directory aliases
 ##
+alias dsc="cd $HOME/code/digital-scriptorium/ds-convert"
+alias dsch="cd $HOME/code/digital-scriptorium/ds-schema"
+alias dsi="cd $HOME/code/digital-scriptorium/ds-import"
+alias dsng="cd $HOME/code/digital-scriptorium/ds-number-generator"
+alias dsp="cd $HOME/code/digital-scriptorium/digital-scriptorium-prototype"
+alias dss="cd $HOME/code/digital-scriptorium/ds-search"
+alias dssd="cd $HOME/code/digital-scriptorium/ds-search-deployment"
+alias dsx="cd $HOME/code/digital-scriptorium/ds-exports-2"
+alias jnl="cd $HOME/code/demery/journal-indexer"
+alias openn="cd $HOME/code/openn/openn"
+alias vce="cd $HOME/code/VisColl/VisualCollation"
 # print ISO formatted date time
 alias idate="date +%FT%T%z"
 ##
@@ -225,7 +238,10 @@ alias l="ls -F"
 alias ll="l -lh"
 alias lal="ll -a"
 alias lll=lal
-alias lrt="ll -rt" # time modified; ascending order
+alias lt="ll -t"
+alias lrt="lt -r" # time modified; ascending order
+alias lsd="ls -d"
+alias llsd="ll -d"
 
 alias gi="gem install --no-rdoc --no-ri"
 alias openx="open -a \"Microsoft Excel\""
