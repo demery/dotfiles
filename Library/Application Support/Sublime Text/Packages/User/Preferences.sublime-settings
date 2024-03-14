@@ -5,7 +5,7 @@
 		"website's"
 	],
 	"auto_complete_commit_on_tab": false,
-	"draw_white_space": "all",
+	"draw_white_space": ["all"],
 	"folder_exclude_patterns":
 	[
 		"node_modules"
@@ -29,4 +29,6 @@
 	[
 		"Vintage",
 	],
+	"index_files": true,
+
 }

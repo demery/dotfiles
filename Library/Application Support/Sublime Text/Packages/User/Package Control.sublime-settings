@@ -6,7 +6,6 @@
 	"installed_packages":
 	[
 		"AdvancedNewFile",
-		"AlignTab",
 		"Anaconda",
 		"Babel",
 		"Dockerfile Syntax Highlighting",
@@ -16,9 +15,8 @@
 		"JSON Reindent",
 		"Marked App Menu",
 		"nginx",
-		"Package Control",
-		"Pretty JSON",
 		"Python 3",
+		"RawLineEdit",
 		"Restructured Text (RST) Snippets",
 		"RestructuredText Improved",
 		"SCSS",
