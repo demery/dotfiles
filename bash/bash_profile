@@ -21,7 +21,6 @@ if [ -e $HOME/Java/apache-jena-4.8.0 ]
 then
   export JENA_HOME=$HOME/Java/apache-jena-4.8.0
 fi
-
 [[ -e /opt/homebrew/opt/openjdk ]] && export JAVA_HOME=/opt/homebrew/opt/openjdk
 
 ##
@@ -237,7 +236,7 @@ export SCM_CHECK=true
 # Load Bash It
 source "$BASH_IT"/bash_it.sh
 
-function feature_branch {
+feature_branch {
   fb_number=$1
   fb_name="${@:2}" # get the rest of the arguments
 
