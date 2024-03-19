@@ -11,13 +11,22 @@ export HISTFILESIZE=1000000
 export HISTSIZE=1000000
 
 HOMEBREW_PREFIX=$( [[ -e /opt/homebrew ]] && echo /opt/homebrew || echo /usr/local )
-export FUSEKI_HOME=$HOME/Java/apache-jena-fuseki-4.8.0
-export JENA_HOME=$HOME/Java/apache-jena-4.8.0
+
+if [ -e HOME/Java/apache-jena-fuseki-4.8.0 ]
+then
+  export FUSEKI_HOME=$HOME/Java/apache-jena-fuseki-4.8.0
+fi
+
+if [ -e $HOME/Java/apache-jena-4.8.0 ]
+then
+  export JENA_HOME=$HOME/Java/apache-jena-4.8.0
+fi
+
 [[ -e /opt/homebrew/opt/openjdk ]] && export JAVA_HOME=/opt/homebrew/opt/openjdk
 
 ##
 # Determine whether path exists and isn't already in $PATH.
-function add_path() {
+add_path() {
   # exit 1 if the path doesn't exist
   [[ -e "${1}" ]] || return 1
 
@@ -114,7 +123,12 @@ stt_both $(hostname)
 
 ##
 # Rbenv
-which -s rbenv && eval "$(rbenv init -)" || echo "WARNING: rbenv not found"
+if which -s rbenv
+then
+  eval "$(rbenv init -)"
+else
+  echo "WARNING: rbenv not found"
+fi
 
 ##
 # Bash completion
