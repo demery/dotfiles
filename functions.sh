@@ -30,28 +30,28 @@ alias tstamp="date +%Y%m%dT%H%M%S"
 
 ##
 # Print a message preceded by the name of the current command
-function msg {
+msg() {
   echo "[$cmd] $1"
 }
 
 ##
 # Print an ERROR message and quit with an error status (`1`)
-function error {
+error() {
   msg "ERROR: $1"
   exit 1
 }
 
-function warning {
+warning() {
   msg "WARNING: $1"
 }
 
-function error_no_exit {
+error_no_exit() {
   msg "ERROR: $1"
 }
 
 ##
 # See if the named application is installed (MacOS)
-function is_installed {
+is_installed() {
   ii_application="$1"
 
   mdfind "kMDItemKind == 'Application'" | grep -q "$ii_application"
@@ -66,7 +66,7 @@ function is_installed {
 #
 # argument: the search string for the running application
 #
-function is_running {
+is_running() {
   ir_application="$1"
 
   ps -ef | sed /grep/d | grep -q "${ir_application}"
@@ -75,7 +75,7 @@ function is_running {
   return $status
 }
 
-function homebrew_bin_dir {
+homebrew_bin_dir() {
   if ! which -s brew
   then
     error_no_exit "Homebrew not installed or not in PATH; homebrew prefix not found"
@@ -85,7 +85,7 @@ function homebrew_bin_dir {
   dirname $(which brew)
 }
 
-function brew_install_python {
+brew_install_python() {
   if ! homebrew_bin_dir
   then
     return 1
@@ -111,7 +111,7 @@ function brew_install_python {
   fi
 }
 
-function update_pyenv {
+update_pyenv() {
   if ! which -s brew
   then
     error_no_exit "Homebrew not found; please install homebrew or add it to your path"
@@ -120,7 +120,7 @@ function update_pyenv {
   brew upgrade pyenv
 }
 
-function latest_pyenv_version {
+latest_pyenv_version() {
   if ! which -s pyenv
   then
     error_no_exit "PYENV not installed"
@@ -135,7 +135,7 @@ function latest_pyenv_version {
   fi
 
 }
-function pyenv_install_python {
+pyenv_install_python() {
   python_version=$(latest_pyenv_version)
   if [[ -z "${python_version}" ]]
   then
@@ -156,7 +156,7 @@ function pyenv_install_python {
 
 ##
 # Find the latest pip3.x
-function find_pip3x {
+find_pip()3x {
   bin_dir=$(homebrew_bin_dir)
   if [[ -n "${bin_dir}" ]]
   then
@@ -177,7 +177,7 @@ function find_pip3x {
 
 ##
 # Find the latest python3.x
-function find_python3x {
+find_python()3x {
   bin_dir=$(homebrew_bin_dir)
   if [[ -n "${bin_dir}" ]]
   then
