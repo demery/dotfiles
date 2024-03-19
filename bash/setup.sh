@@ -51,7 +51,7 @@ install_pkg() {
   if brew list | egrep -q "\b${ip_pkg}\b"
   then
     msg "Package already installed: ${pkg}"
-    if [[ -n ${ip_upgrade} ]]
+    if [ -n ${ip_upgrade} ]
     then
       msg "Upgrade requested; upgrading: ${pkg}"
       brew upgrade ${pkg}
@@ -86,7 +86,7 @@ while getopts "hbu" opt; do
   esac
 done
 
-if [[ -L ${BASH_PROFILE} ]]
+if [ -L ${BASH_PROFILE} ]
 then
   if cmp ${BASH_PROFILE} ${THIS_DIR}/bash_profile
   then
@@ -108,7 +108,7 @@ fi
 
 # Install bash_it
 msg "Install bash-it"
-if [[ -e ${BASH_IT_DIR} ]]
+if [ -e ${BASH_IT_DIR} ]
 then
   msg "Bash-it already installed: ${BASH_IT_DIR}"
   msg "Updating bash-it"
