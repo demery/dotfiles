@@ -122,11 +122,9 @@ stt_both $(hostname)
 
 ##
 # Rbenv
-if which -s rbenv
+if which rbenv
 then
   eval "$(rbenv init -)"
-else
-  echo "WARNING: rbenv not found"
 fi
 
 ##

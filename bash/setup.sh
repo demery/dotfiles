@@ -136,7 +136,7 @@ fi
 if [ -n ${homebrew} ]
 then
   msg "Installing homebrew packages: ${HOMEBREW_PACKAGES}"
-  if which -s brew
+  if which brew
   then
     for pkg in ${HOMEBREW_PACKAGES}
     do
