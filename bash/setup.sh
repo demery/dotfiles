@@ -17,15 +17,15 @@ BASH_IT_DIR=${HOME}/.bash_it
 BASH_IT_OPTS=
 HOMEBREW_PACKAGES="bash-completion"
 
-function msg {
+msg() {
   echo "[${CMD}] $1"
 }
 
-function usage {
+usage() {
   echo "Usage: ${CMD} [-h] [-b|-u]"
 }
 
-function description {
+description() {
   cat <<EOF
 
 Description:
@@ -45,7 +45,7 @@ Options:
 EOF
 }
 
-function install_pkg {
+install_pkg() {
   ip_pkg=$1
   ip_upgrade=$2
   if brew list | egrep -q "\b${ip_pkg}\b"
