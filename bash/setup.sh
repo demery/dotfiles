@@ -128,6 +128,7 @@ else
     BASH_IT_OPTS="--no-modify-config"
   fi
   ${BASH_IT_DIR}/install.sh ${BASH_IT_OPTS}
+  source "${BASH_IT_DIR}"/bash_it.sh
   bash_it enable alias git
 fi
 

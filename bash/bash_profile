@@ -236,7 +236,7 @@ export SCM_CHECK=true
 # Load Bash It
 source "$BASH_IT"/bash_it.sh
 
-feature_branch {
+feature_branch() {
   fb_number=$1
   fb_name="${@:2}" # get the rest of the arguments
 
