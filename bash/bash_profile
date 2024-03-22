@@ -254,6 +254,9 @@ alias lrt="lt -r" # time modified; ascending order
 alias lsd="ls -d"
 alias llsd="ll -d"
 
+# docker
+alias dsvls="docker service ls"
+
 alias gi="gem install --no-rdoc --no-ri"
 alias openx="open -a \"Microsoft Excel\""
 alias sxp=strip_xpath
