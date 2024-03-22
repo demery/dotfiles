@@ -86,6 +86,9 @@ while getopts "hbu" opt; do
   esac
 done
 
+# prefer /usr/bin/bash to /bin/bash
+[[ -e /usr/bin/bash ]] && /usr/bin/bash
+
 if [ -L ${BASH_PROFILE} ]
 then
   if cmp ${BASH_PROFILE} ${THIS_DIR}/bash_profile
@@ -130,6 +133,7 @@ else
   ${BASH_IT_DIR}/install.sh ${BASH_IT_OPTS}
   . "${BASH_IT_DIR}"/bash_it.sh
   bash_it enable alias git
+  bash_it enable alias docker
 fi
 
 # Install homebrew packages
