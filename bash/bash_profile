@@ -55,8 +55,8 @@ ${HOMEBREW_PREFIX}/bin
 ${HOMEBREW_PREFIX}/opt/openjdk/bin
 ${HOME}/.local/bin
 ${HOME}/bin
-${HOME}/scripts
-"
+${HOME}/scripts"
+
 for p in ${prefix_paths}
 do
   add_path ${p} && PATH=${p}:${PATH}
@@ -71,16 +71,26 @@ export PATH
 # directory aliases
 ##
 alias dsc="cd $HOME/code/digital-scriptorium/ds-convert"
+alias dsm="cd $HOME/code/digital-scriptorium/ds-member-data"
+alias dsd="cd $HOME/code/digital-scriptorium/ds-data"
 alias dsch="cd $HOME/code/digital-scriptorium/ds-schema"
-alias dsi="cd $HOME/code/digital-scriptorium/ds-import"
+alias dsi="cd $HOME/code/digital-scriptorium/ds-import; export FLASK_DEBUG=1; export FLASK_APP=src/dsimport_flask.py"
+alias dsiv="cd $HOME/code/digital-scriptorium/ds-import/vagrant"
 alias dsng="cd $HOME/code/digital-scriptorium/ds-number-generator"
 alias dsp="cd $HOME/code/digital-scriptorium/digital-scriptorium-prototype"
 alias dss="cd $HOME/code/digital-scriptorium/ds-search"
 alias dssd="cd $HOME/code/digital-scriptorium/ds-search-deployment"
 alias dsx="cd $HOME/code/digital-scriptorium/ds-exports-2"
+alias dspt='cd /Users/emeryr/code/digital-scriptorium/ds-search-pipeline-tests'
 alias jnl="cd $HOME/code/demery/journal-indexer"
 alias openn="cd $HOME/code/openn/openn"
+alias sdbm="cd $HOME/code/sdbm/sdbmss"
+alias apo="cd $HOME/code/dld/apotheca"
+alias apor="cd $HOME/code/dld/apotheca/rails_app"
+alias apov="cd $HOME/code/dld/apotheca/vagrant"
 alias vce="cd $HOME/code/VisColl/VisualCollation"
+alias icloud="cd /Users/emeryr/Library/Mobile\ Documents/com~apple~CloudDocs/"
+alias icl=icloud
 # print ISO formatted date time
 alias idate="date +%FT%T%z"
 ##
@@ -163,7 +173,7 @@ export BASH_IT="${HOME}/.bash_it"
 # Lock and Load a custom theme file.
 # Leave empty to disable theming.
 # location /.bash_it/themes/
-export BASH_IT_THEME='bobby'
+export BASH_IT_THEME='bobby-python'
 ##
 # Some themes can show whether `sudo` has a current token or not.
 # Set `$THEME_CHECK_SUDO` to `true` to check every prompt:
@@ -231,6 +241,9 @@ export SCM_CHECK=true
 # Uncomment this to make Bash-it create alias reload.
 # export BASH_IT_RELOAD_LEGACY=1
 ##
+#
+##
+export THEME_CLOCK_FORMAT=“%H:%M:%S“
 # Load Bash It
 source "$BASH_IT"/bash_it.sh
 
@@ -246,11 +259,13 @@ feature_branch() {
 # Add aliases after bash_it loads so they don't get stepped on
 # command aliases
 alias l="ls -F"
+
+alias l1="ls -1 -F --color=none"
 alias ll="l -lh"
 alias lal="ll -a"
 alias lll=lal
 alias lt="ll -t"
-alias lrt="lt -r" # time modified; ascending order
+alias lrt="ll -rt" # time modified; ascending order
 alias lsd="ls -d"
 alias llsd="ll -d"
 
@@ -258,12 +273,19 @@ alias llsd="ll -d"
 alias dsvls="docker service ls"
 
 alias gi="gem install --no-rdoc --no-ri"
-alias openx="open -a \"Microsoft Excel\""
 alias sxp=strip_xpath
 alias vish="vim -c 'set ft=sh'"
-alias vivid="vim -c 'colorscheme vividchalk'"
 alias wl="wc -l"
+alias tstamp='date +%Y%m%dT%H%M%S-%Z'
+
+# applications
 alias femacs="emacs --no-init-file"
 alias rubymine="open -a RubyMine"
 alias subl='open -a "Sublime Text"'
-alias tstamp='date +%Y%m%dT%H%M%S-%Z'
+alias vivid="vim -c 'colorscheme vividchalk'"
+alias openx="open -a \"Microsoft Excel\""
+alias marked="open -a \"Marked 2\""
+
+# bundler
+bex="alias bundle exec"
+bx=bex
